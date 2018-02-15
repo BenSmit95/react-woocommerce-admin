@@ -1,1 +1,1 @@
-export { setWatchFormField, setWatchFormCheckbox } from './watchForm';
+export { setWatchFormField, setWatchFormCheckbox, postWatchFormOffer } from './watchForm';

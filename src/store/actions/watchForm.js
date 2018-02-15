@@ -10,4 +10,9 @@ export const setWatchFormField = (fieldName, value) => ({
 export const setWatchFormCheckbox = (target) => ({
     type: SET_WATCHFORM_CHECKBOX,
     target
-})
+});
+
+export const postWatchFormOffer = () => {
+    return (dispatch, getState) => {
+    }
+}
