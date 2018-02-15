@@ -22,3 +22,4 @@ yarn-error.log*
 
 #secret
 /src/_secret
+/src/assets

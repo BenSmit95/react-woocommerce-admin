@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classes from './OfferInformation.css';
 import { connect } from 'react-redux';
 import { setWatchFormField, setWatchFormCheckbox } from '../../../store/actions/index';
 
@@ -9,29 +10,52 @@ import TextInput from '../TextInput/TextInput';
 import CheckboxInput from '../CheckboxInput/CheckboxInput';
 
 class OfferInformation extends Component {
-
+    state = {
+        brandNotListed: false
+    }
     render() {
-        return (
-            <section>
-                <h3>Offer Information</h3>
-                <DropdownInput
-                    label={'Type of watch'}
-                    options={watchTypes}
+
+        let brandInput = (
+            <DropdownInput
+                label={'Brand'}
+                options={watchBrands}
+                required
+                whiteOption
+                name={'watchBrand'}
+                onChange={this.props.onValueChange}
+                value={this.props.values.watchBrand}
+            />
+        )
+
+        if (this.state.brandNotListed) {
+            brandInput = (
+                <TextInput 
+                    label={'Brand'}
                     required
-                    name="watchType"
+                    name={'watchBrand'}
                     onChange={this.props.onValueChange}
-                    value={this.props.values.watchType}
+                    value={this.props.values.watchBrand}
                 />
-                <div>
+
+            )
+        }
+
+        return (
+            <section className={classes.OfferInformation}>
+                <div className={classes.row1}>
+                    <h3>Offer Information</h3>
                     <DropdownInput
-                        label={'Brand'}
-                        options={watchBrands}
+                        label={'Type of watch'}
+                        options={watchTypes}
                         required
-                        whiteOption
-                        name={'watchBrand'}
+                        name="watchType"
                         onChange={this.props.onValueChange}
-                        value={this.props.values.watchBrand}
+                        value={this.props.values.watchType}
                     />
+                </div>
+                <hr />
+                <div className={classes.row3input}>
+                    {brandInput}
                     <TextInput
                         label={'Model'}
                         name={'watchModel'}
@@ -40,7 +64,8 @@ class OfferInformation extends Component {
                         value={this.props.values.watchModel}
                     />
                 </div>
-                <div>
+                <p className={classes.brandNotListed}onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
+                <div className={classes.row3input}>
                     <DropdownInput
                         label={'Movement'}
                         name={'watchMovement'}
@@ -66,7 +91,7 @@ class OfferInformation extends Component {
                         value={this.props.values.watchBraceletMaterial}
                     />
                 </div>
-                <div>
+                <div className={classes.row3input}>
                     <DropdownInput
                         label={'Gender'}
                         name={'watchGender'}
@@ -76,7 +101,8 @@ class OfferInformation extends Component {
                         value={this.props.values.watchGender}
                     />
                 </div>
-                <div>
+                <hr />
+                <div className={classes.row3input}>
                     <DropdownInput
                         label={'Condition'}
                         name={'watchCondition'}
@@ -103,24 +129,27 @@ class OfferInformation extends Component {
                     onChange={this.props.onCheckBoxChange}
                 />
                 <div>
-                    <CheckboxInput
-                        label={'With box'}
-                        target={{
-                            field: 'watchScopeOfDelivery',
-                            key: 'withBox'
-                        }}
-                        checked={this.props.watchWithBox}
-                        onChange={this.props.onCheckBoxChange}
-                    />
-                    <CheckboxInput
-                        label={'With papers'}
-                        target={{
-                            field: 'watchScopeOfDelivery',
-                            key: 'withPapers'
-                        }}
-                        checked={this.props.watchWithPapers}
-                        onChange={this.props.onCheckBoxChange}
-                    />
+                    <label>Scope of delivery</label>
+                    <div className={classes.checkboxes}>
+                        <CheckboxInput
+                            label={'With box'}
+                            target={{
+                                field: 'watchScopeOfDelivery',
+                                key: 'withBox'
+                            }}
+                            checked={this.props.watchWithBox}
+                            onChange={this.props.onCheckBoxChange}
+                        />
+                        <CheckboxInput
+                            label={'With papers'}
+                            target={{
+                                field: 'watchScopeOfDelivery',
+                                key: 'withPapers'
+                            }}
+                            checked={this.props.watchWithPapers}
+                            onChange={this.props.onCheckBoxChange}
+                        />
+                    </div>
                 </div>
             </section>
         )

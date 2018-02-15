@@ -1,0 +1,4 @@
+.DropdownInput {
+  display: flex;
+  flex-flow: column
+}

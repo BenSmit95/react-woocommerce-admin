@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import classes from './WatchForm.css';
+
 import OfferInformation from './OfferInformation/OfferInformation';
 
 class WatchForm extends Component {
 
     render() {
         return (
-            <form>
+            <form className={classes.WatchForm}>
                 <OfferInformation />
             </form>
         )

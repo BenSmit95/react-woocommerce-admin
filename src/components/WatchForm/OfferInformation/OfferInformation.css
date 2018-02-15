@@ -1,0 +1,53 @@
+.OfferInformation {
+  border-bottom: 1px solid #cdd4d8
+}
+
+.OfferInformation h3 {
+  font-size: 22px;
+}
+
+.OfferInformation hr {
+  border: 0;
+  border-bottom: 1px solid #cdd4d8;
+  margin: 20px 0;
+}
+
+.row1 {
+  padding: 10px 0;
+}
+
+.row1 div {
+  margin-top: 20px;
+}
+
+.row3input {
+  display: flex;
+  padding: 10px 0;
+}
+
+.row3input div {
+  flex: 0 1 30%;
+}
+
+.row3input div:not(:last-child) {
+  margin-right: 5%;
+}
+
+.brandNotListed {
+  color: #888;
+  cursor: pointer;
+  margin: 0px;
+}
+
+.brandNotListed:hover {
+  color: #33474F;
+}
+
+.checkboxes {
+  display: flex;
+}
+
+.checkboxes div {
+  margin-right: 20px;
+  width: 20%;
+}

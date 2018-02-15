@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './DropdownInput.css';
 
 const DropdownInput = (props) => {
 
@@ -6,10 +7,10 @@ const DropdownInput = (props) => {
         <option key={props.name + index}>{option}</option>
     ));
 
-    if(props.whiteOption) options.unshift(<option></option>);
+    if(props.whiteOption) options.unshift(<option key={props.name+'-1'}></option>);
 
     return (
-        <div>
+        <div className={classes.DropdownInput}>
             <label>{props.label}{props.required ? ' *' : null}</label>
             <select 
                 required={props.required}

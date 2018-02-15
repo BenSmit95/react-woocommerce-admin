@@ -1,7 +1,9 @@
 import React from 'react';
 
+import classes from './CheckboxInput.css';
+
 const CheckboxInput = (props) => (
-  <div>
+  <div className={classes.CheckboxInput}>
     <input
       type="checkbox"
       name={props.name}

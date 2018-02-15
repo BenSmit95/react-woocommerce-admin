@@ -1,0 +1,16 @@
+.WatchForm {
+  width: 100%;
+}
+
+.WatchForm input, .WatchForm select, .WatchForm option {
+  background-color: #EDEDED;
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  outline: none;
+}
+
+.WatchForm label{
+  color: #33474F;
+  font-family: Trenda-Bold;
+}

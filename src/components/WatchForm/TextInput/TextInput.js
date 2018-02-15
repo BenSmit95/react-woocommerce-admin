@@ -1,7 +1,8 @@
 import React from 'react';
+import classes from './TextInput.css';
 
 const TextInput = (props) => (
-    <div>
+    <div className={classes.TextInput}>
         <label>{props.label}{props.required ? ' *' : null}</label>
         <input
             type="text"

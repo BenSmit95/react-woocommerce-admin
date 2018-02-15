@@ -1,5 +1,25 @@
+@font-face {
+    font-family: 'Trenda-Bold';
+    src: url('./assets/fonts/Latinotype - Trenda Bold.otf');
+}
+@font-face {
+    font-family: 'Trenda-Regular';
+    src: url('./assets/fonts/Latinotype - Trenda Regular.otf');
+}
+@font-face {
+    font-family: 'MinionPro-IT';
+    src: url('./assets/fonts/MinionPro-It.otf');
+}
+
+
 body {
+  background-color: #FAFAFA;
+  font-family: Trenda-Regular, sans-serif;
   margin: 0;
+  min-height: 100vh;
   padding: 0;
-  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }

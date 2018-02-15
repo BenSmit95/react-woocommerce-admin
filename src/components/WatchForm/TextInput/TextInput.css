@@ -1,0 +1,4 @@
+.TextInput {
+  display: flex;
+  flex-flow: column;
+}
