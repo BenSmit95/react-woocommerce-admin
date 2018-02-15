@@ -128,7 +128,7 @@ class OfferInformation extends Component {
                     checked={this.props.watchConditionNew}
                     onChange={this.props.onCheckBoxChange}
                 />
-                <div>
+                <div className={classes.checkboxContainer}>
                     <label>Scope of delivery</label>
                     <div className={classes.checkboxes}>
                         <CheckboxInput

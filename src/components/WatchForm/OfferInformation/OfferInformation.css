@@ -1,5 +1,6 @@
 .OfferInformation {
-  border-bottom: 1px solid #cdd4d8
+  border-bottom: 1px solid #cdd4d8;
+  padding: 50px 0;
 }
 
 .OfferInformation h3 {
@@ -43,8 +44,13 @@
   color: #33474F;
 }
 
+.checkboxContainer {
+  padding-top: 15px;
+}
+
 .checkboxes {
   display: flex;
+  padding-top: 5px;
 }
 
 .checkboxes div {

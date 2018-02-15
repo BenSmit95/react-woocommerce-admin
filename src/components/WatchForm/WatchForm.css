@@ -6,11 +6,29 @@
   background-color: #EDEDED;
   border: none;
   border-radius: 10px;
+  font-family: Trenda-regular;
+  font-size: 18px;
   padding: 7px;
   outline: none;
+}
+
+.WatchForm input {
+  padding-left: 15px;
 }
 
 .WatchForm label{
   color: #33474F;
   font-family: Trenda-Bold;
+}
+
+.submit {
+  background-color: #C5963D;
+  border: 0;
+  color: #FAFAFA;
+  padding: 15px;
+}
+
+.submit:hover {
+  background-color: #896c42;
+  cursor: pointer;
 }
