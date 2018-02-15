@@ -14,6 +14,8 @@ const DropdownInput = (props) => {
             <select 
                 required={props.required}
                 name={props.name}
+                onChange={(event) => props.onChange(props.name, event.target.value)}
+                value={props.value}
             >
                 {options}
             </select>
