@@ -6,6 +6,8 @@ const DropdownInput = (props) => {
         <option>{option}</option>
     ));
 
+    if(props.whiteOption) options.unshift(<option></option>);
+
     return (
         <div>
             <label>{props.label}{props.required ? ' *' : null}</label>

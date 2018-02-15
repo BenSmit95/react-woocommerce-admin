@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { watchTypes, watchBrands } from '../../../_secret/watchFormData';
+import { watchTypes, watchBrands, watchMovement } from '../../../_secret/watchFormData';
 
-import DropdownInput from '../DropdownInput/DropdownInput'
+import DropdownInput from '../DropdownInput/DropdownInput';
+import TextInput from '../TextInput/TextInput';
 
 const OfferInformation = (props) => (
-    <div>
+    <section>
         <h3>Offer Information</h3>
         <DropdownInput
             label={'Type of watch'}
@@ -20,8 +21,19 @@ const OfferInformation = (props) => (
                 required
                 whiteOption
             />
+            <TextInput 
+                label={'Model'}
+                required
+            />
         </div>
-    </div>
+        <div>
+            <DropdownInput 
+                label={'Movement'}
+                options={watchMovement}
+                whiteOption
+            />
+        </div>
+    </section>
 )
 
 export default OfferInformation;
