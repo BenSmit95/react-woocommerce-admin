@@ -1,4 +1,4 @@
-import { SET_WATCHFORM_FIELD } from './actionTypes';
+import { SET_WATCHFORM_FIELD, SET_WATCHFORM_CHECKBOX } from './actionTypes';
 
 
 export const setWatchFormField = (fieldName, value) => ({
@@ -6,3 +6,8 @@ export const setWatchFormField = (fieldName, value) => ({
     fieldName,
     value
 });
+
+export const setWatchFormCheckbox = (target) => ({
+    type: SET_WATCHFORM_CHECKBOX,
+    target
+})

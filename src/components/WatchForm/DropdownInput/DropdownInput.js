@@ -3,7 +3,7 @@ import React from 'react';
 const DropdownInput = (props) => {
 
     const options = props.options.map((option, index) => (
-        <option>{option}</option>
+        <option key={props.name + index}>{option}</option>
     ));
 
     if(props.whiteOption) options.unshift(<option></option>);

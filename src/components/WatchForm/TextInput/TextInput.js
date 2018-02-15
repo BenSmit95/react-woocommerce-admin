@@ -7,6 +7,7 @@ const TextInput = (props) => (
             type="text"
             required={props.required}
             name={props.name}
+            onChange={(event) => props.onChange(props.name, event.target.value)}
         />
     </div>
 )
