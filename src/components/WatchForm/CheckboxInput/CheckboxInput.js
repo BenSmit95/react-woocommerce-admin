@@ -6,11 +6,11 @@ const CheckboxInput = (props) => (
   <div className={classes.CheckboxInput}>
     <input
       type="checkbox"
-      name={props.name}
-      onChange={() => props.onChange(props.target)}
-      checked={props.checked}
+      name={props.input.name}
+      onChange={() => props.onChange(props.input.name)}
+      checked={props.input.value}
     />
-    <label>{props.label}{props.required ? ' *' : ''}</label>
+    <label>{props.label}{props.input.controls.required ? ' *' : ''}</label>
   </div>
 )
 

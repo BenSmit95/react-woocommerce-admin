@@ -4,19 +4,19 @@ import classes from './DropdownInput.css';
 const DropdownInput = (props) => {
 
     const options = props.options.map((option, index) => (
-        <option key={props.name + index}>{option}</option>
+        <option key={props.input.name + index}>{option}</option>
     ));
 
-    if(props.whiteOption) options.unshift(<option key={props.name+'-1'}></option>);
+    if(props.input.controls.whiteOption) options.unshift(<option key={props.input.name+'-1'}></option>);
 
     return (
         <div className={classes.DropdownInput}>
-            <label>{props.label}{props.required ? ' *' : null}</label>
+            <label>{props.label}{props.input.controls.required ? ' *' : null}</label>
             <select 
-                required={props.required}
-                name={props.name}
-                onChange={(event) => props.onChange(props.name, event.target.value)}
-                value={props.value}
+                required={props.input.controls.required}
+                name={props.input.name}
+                onChange={(event) => props.onChange(props.input.name, event.target.value)}
+                value={props.input.value}
             >
                 {options}
             </select>

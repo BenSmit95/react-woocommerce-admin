@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './OfferInformation.css';
 import { connect } from 'react-redux';
-import { setWatchFormField, setWatchFormCheckbox } from '../../../store/actions/index';
+import { setWatchFormField, toggleWatchFormCheckbox } from '../../../store/actions/index';
 
 import { watchTypes, watchBrands, watchMovement, watchCaseMaterial, watchBraceletMaterial, watchGender, watchCondition } from '../../../_secret/watchFormData';
 
@@ -19,22 +19,17 @@ class OfferInformation extends Component {
             <DropdownInput
                 label={'Brand'}
                 options={watchBrands}
-                required
-                whiteOption
-                name={'watchBrand'}
                 onChange={this.props.onValueChange}
-                value={this.props.values.watchBrand}
+                input={this.props.inputs.watchBrand}
             />
         )
 
         if (this.state.brandNotListed) {
             brandInput = (
-                <TextInput 
+                <TextInput
                     label={'Brand'}
-                    required
-                    name={'watchBrand'}
                     onChange={this.props.onValueChange}
-                    value={this.props.values.watchBrand}
+                    input={this.props.inputs.watchBrand}
                 />
 
             )
@@ -47,107 +42,79 @@ class OfferInformation extends Component {
                     <DropdownInput
                         label={'Type of watch'}
                         options={watchTypes}
-                        required
-                        name="watchType"
                         onChange={this.props.onValueChange}
-                        value={this.props.values.watchType}
+                        input={this.props.inputs.watchType}
                     />
                 </div>
                 <hr />
-                <div className={classes.row3input}>
+                <div className={classes.row2}>
                     {brandInput}
                     <TextInput
                         label={'Model'}
-                        name={'watchModel'}
                         onChange={this.props.onValueChange}
-                        required
-                        value={this.props.values.watchModel}
+                        input={this.props.inputs.watchModel}
                     />
                 </div>
-                <p className={classes.brandNotListed}onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
-                <div className={classes.row3input}>
+                <p className={classes.brandNotListed} onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
+                <div className={classes.row3}>
                     <DropdownInput
                         label={'Movement'}
-                        name={'watchMovement'}
                         options={watchMovement}
                         onChange={this.props.onValueChange}
-                        whiteOption
-                        value={this.props.values.watchMovement}
+                        input={this.props.inputs.watchMovement}
                     />
                     <DropdownInput
                         label={'Case material'}
-                        name={'watchCaseMaterial'}
                         options={watchCaseMaterial}
                         onChange={this.props.onValueChange}
-                        whiteOption
-                        value={this.props.values.watchCaseMaterial}
+                        input={this.props.inputs.watchCaseMaterial}
                     />
                     <DropdownInput
                         label={'Bracelet material'}
-                        name={'watchBraceletMaterial'}
                         options={watchBraceletMaterial}
                         onChange={this.props.onValueChange}
-                        whiteOption
-                        value={this.props.values.watchBraceletMaterial}
+                        input={this.props.inputs.watchBraceletMaterial}
                     />
-                </div>
-                <div className={classes.row3input}>
                     <DropdownInput
                         label={'Gender'}
-                        name={'watchGender'}
                         options={watchGender}
                         onChange={this.props.onValueChange}
-                        whiteOption
-                        value={this.props.values.watchGender}
+                        input={this.props.inputs.watchGender}
                     />
                 </div>
                 <hr />
-                <div className={classes.row3input}>
-                    <DropdownInput
-                        label={'Condition'}
-                        name={'watchCondition'}
-                        options={watchCondition}
-                        onChange={this.props.onValueChange}
-                        whiteOption
-                        required
-                        value={this.props.values.watchCondition}
-                    />
+                <div className={classes.row4}>
+                    <div className={classes.condition}>
+                        <DropdownInput
+                            label={'Condition'}
+                            options={watchCondition}
+                            onChange={this.props.onValueChange}
+                            input={this.props.inputs.watchCondition}
+                        />
+                        <CheckboxInput
+                            label={'New'}
+                            onChange={this.props.onCheckboxChange}
+                            input={this.props.inputs.watchConditionNew}
+                        />
+                    </div>
                     <TextInput
                         label={'Year'}
-                        name={'watchYear'}
                         onChange={this.props.onValueChange}
-                        value={this.props.values.watchYear}
+                        input={this.props.inputs.watchYear}
                     />
                 </div>
-                <CheckboxInput
-                    label={'New'}
-                    target={{
-                        field: 'watchCondition',
-                        key: 'new'
-                    }}
-                    checked={this.props.watchConditionNew}
-                    onChange={this.props.onCheckBoxChange}
-                />
-                <div className={classes.checkboxContainer}>
+                <div className={classes.row5}>
                     <label>Scope of delivery</label>
                     <div className={classes.checkboxes}>
                         <CheckboxInput
                             label={'With box'}
-                            target={{
-                                field: 'watchScopeOfDelivery',
-                                key: 'withBox'
-                            }}
-                            checked={this.props.watchWithBox}
-                            onChange={this.props.onCheckBoxChange}
+                            onChange={this.props.onCheckboxChange}
+                            input={this.props.inputs.watchWithBox}
                         />
                         <CheckboxInput
                             label={'With papers'}
-                            target={{
-                                field: 'watchScopeOfDelivery',
-                                key: 'withPapers'
-                            }}
-                            checked={this.props.watchWithPapers}
-                            onChange={this.props.onCheckBoxChange}
+                            onChange={this.props.onCheckboxChange}
+                            input={this.props.inputs.watchWithPapers}
                         />
                     </div>
                 </div>
@@ -158,25 +125,25 @@ class OfferInformation extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    values: {
-        watchType: state.watchForm.watchType.value,
-        watchBrand: state.watchForm.watchBrand.value,
-        watchModel: state.watchForm.watchModel.value,
-        watchMovement: state.watchForm.watchMovement.value,
-        watchCaseMaterial: state.watchForm.watchCaseMaterial.value,
-        watchBraceletMaterial: state.watchForm.watchBraceletMaterial.value,
-        watchGender: state.watchForm.watchBraceletMaterial.value,
-        watchCondition: state.watchForm.watchCondition.value,
-        watchConditionNew: state.watchForm.watchCondition.new,
-        watchYear: state.watchForm.watchYear.value,
-        watchWithBox: state.watchForm.watchScopeOfDelivery.withBox,
-        watchWithPapers: state.watchForm.watchScopeOfDelivery.withPapers
+    inputs: {
+        watchType: state.watchForm.watchType,
+        watchBrand: state.watchForm.watchBrand,
+        watchModel: state.watchForm.watchModel,
+        watchMovement: state.watchForm.watchMovement,
+        watchCaseMaterial: state.watchForm.watchCaseMaterial,
+        watchBraceletMaterial: state.watchForm.watchBraceletMaterial,
+        watchGender: state.watchForm.watchBraceletMaterial,
+        watchCondition: state.watchForm.watchCondition,
+        watchConditionNew: state.watchForm.watchConditionNew,
+        watchYear: state.watchForm.watchYear,
+        watchWithBox: state.watchForm.watchWithBox,
+        watchWithPapers: state.watchForm.watchWithPapers
     }
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onValueChange: (fieldName, value) => dispatch(setWatchFormField(fieldName, value)),
-    onCheckBoxChange: (target) => dispatch(setWatchFormCheckbox(target))
+    onCheckboxChange: (fieldName) => dispatch(toggleWatchFormCheckbox(fieldName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OfferInformation);

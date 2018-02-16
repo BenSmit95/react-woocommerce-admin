@@ -1,37 +1,94 @@
-import { SET_WATCHFORM_FIELD, SET_WATCHFORM_CHECKBOX } from '../actions/actionTypes';
+import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX } from '../actions/actionTypes';
 
 const defaultState = {
     watchType: {
-        value: 'Watch'
+        value: 'Watch',
+        error: '',
+        controls: {
+            required: true,
+        },
+        name: 'watchType'
     },
     watchBrand: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            required: true,
+            whiteOption: true,
+        },
+        name: 'watchBrand'
     },
     watchModel: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            required: true,
+        },
+        name: 'watchModel',
     },
     watchMovement: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true,
+        },
+        name: 'watchMovement',
     },
     watchCaseMaterial: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true,
+        },
+        name: 'watchCaseMaterial',
     },
     watchBraceletMaterial: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true,
+        },
+        name: 'watchBraceletMaterial'
     },
     watchGender: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true,
+        },
+        name: 'watchGender',
     },
     watchCondition: {
         value: '',
-        new: false
+        error: '',
+        controls: {
+            whiteOption: true,
+        },
+        name: 'watchCondition'
+    },
+    watchConditionNew: {
+        value: false,
+        error: '',
+        controls: {},
+        name: 'watchConditionNew'
     },
     watchYear: {
-        value: ''
+        value: '',
+        error: '',
+        controls: {},
+        name:'watchYear',
     },
-    watchScopeOfDelivery: {
-        withBox: false,
-        withPapers: false
+    watchWithBox: {
+        value: false,
+        error: '',
+        controls: {},
+        name: 'watchWithBox',
+    },
+    watchWithPapers: {
+        value: false,
+        error: '',
+        controls: {},
+        name: 'watchWithPapers'
     }
 }
 
@@ -45,12 +102,12 @@ const watchFormReducer = (state = defaultState, action) => {
                     value: action.value
                 }
             }
-        case SET_WATCHFORM_CHECKBOX: 
+        case TOGGLE_WATCHFORM_CHECKBOX: 
             return {
                 ...state,
-                [action.target.field]: {
-                    ...state[action.target.field],
-                    [action.target.key]: !state[action.target.field][action.target.key]
+                [action.fieldName]: {
+                    ...state[action.fieldName],
+                    value: !state[action.fieldName].value
                 }
             }
         default:

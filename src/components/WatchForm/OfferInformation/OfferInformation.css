@@ -7,6 +7,10 @@
   font-size: 22px;
 }
 
+.OfferInformation div {
+  display: flex;
+}
+
 .OfferInformation hr {
   border: 0;
   border-bottom: 1px solid #cdd4d8;
@@ -14,24 +18,54 @@
 }
 
 .row1 {
+  flex-flow: column;
   padding: 10px 0;
 }
 
-.row1 div {
-  margin-top: 20px;
+.row2 {
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
-.row3input {
+.row2 > div {
+  flex: 1 1 200px;
+  max-width: 48%;
+}
+
+.row3 {
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.row3 > div {
+  flex: 1 1 48%;
+  max-width: 48%;
+  margin: 10px 0;
+}
+
+.row4 {
+  flex-flow: column;
+  margin: 10px 0;
+}
+
+.row4 > div {
+  flex: 1 1 48%;
+  max-width: 48%;
+}
+
+.row5 {
   display: flex;
-  padding: 10px 0;
+  flex-flow: column;
+  margin: 10px 0;
 }
 
-.row3input div {
-  flex: 0 1 30%;
+.condition {
+  display: flex;
+  flex-flow: column nowrap;;
 }
 
-.row3input div:not(:last-child) {
-  margin-right: 5%;
+.watchCondition div {
+  flex: 1 1 100%;
 }
 
 .brandNotListed {
@@ -56,4 +90,34 @@
 .checkboxes div {
   margin-right: 20px;
   width: 20%;
+}
+
+@media (min-width: 1000px) {
+  .row2 {
+    justify-content: flex-start
+  }
+
+  .row2 > div {
+    max-width: 30%;
+  }
+
+  .row2 > div:first-child {
+    margin-right: 5%;
+  }
+
+  .row3 > div {
+    max-width: 30%;
+  }
+
+  .row4 {
+    flex-flow: row wrap;
+  }
+
+  .row4 > div {
+    max-width: 30%;
+  }
+
+  .condition {
+    margin-right: 5%;
+  }
 }

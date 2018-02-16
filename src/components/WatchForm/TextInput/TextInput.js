@@ -3,12 +3,12 @@ import classes from './TextInput.css';
 
 const TextInput = (props) => (
     <div className={classes.TextInput}>
-        <label>{props.label}{props.required ? ' *' : null}</label>
+        <label>{props.label}{props.input.controls.required ? ' *' : null}</label>
         <input
             type="text"
-            required={props.required}
-            name={props.name}
-            onChange={(event) => props.onChange(props.name, event.target.value)}
+            required={props.input.controls.required}
+            name={props.input.name}
+            onChange={(event) => props.onChange(props.input.name, event.target.value)}
         />
     </div>
 )
