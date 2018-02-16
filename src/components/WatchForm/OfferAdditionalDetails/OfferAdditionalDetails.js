@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import DropdownPane from '../../../containers/DropdownPane/DropdownPane';
+import WatchBraceletDetails from './WatchBraceletDetails/WatchBraceletDetails';
 
 class OfferAdditionalDetails extends Component {
   render() {
     return (
-      <div>
-        <h3>Additional Details:</h3>
-      </div>
+      <section>
+        <SectionHeader>Additional Details:</SectionHeader>
+        <div>
+          <DropdownPane visible label={'Bracelet/strap'}>
+            <WatchBraceletDetails />
+          </DropdownPane>
+        </div>
+      </section>
     )
   }
 }
 
-export default connect()(OfferAdditionalDetails);
+export default OfferAdditionalDetails;

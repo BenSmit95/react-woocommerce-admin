@@ -125,7 +125,61 @@ const defaultState = {
         error: '',
         controls: { required: true },
         name: 'watchPrice'
-    }
+    },
+    watchBraceletColor: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchBraceletColor'
+    },
+    watchClasp: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchClasp'
+    },
+    watchClaspMaterial: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchClaspMaterial'
+    },
+    watchLugWidth: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchLugWidth'
+    },
+    watchBuckleWidth: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchBuckleWidth'
+    },
+    watchBraceletLengthLong: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchBraceletLengthLong'
+    },
+    watchBraceletLengthShort: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchBraceletLengthShort'
+    },
+    watchBraceletThickness: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchBraceletThickness'
+    },
 }
 
 const watchFormReducer = (state = defaultState, action) => {
