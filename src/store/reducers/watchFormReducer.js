@@ -119,6 +119,12 @@ const defaultState = {
         error: '',
         controls: {},
         name: 'watchWorldwideEstimate'
+    },
+    watchPrice: {
+        value: '',
+        error: '',
+        controls: { required: true },
+        name: 'watchPrice'
     }
 }
 
