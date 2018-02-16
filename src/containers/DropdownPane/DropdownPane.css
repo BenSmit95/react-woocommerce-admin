@@ -1,0 +1,13 @@
+.DropdownPane {
+  box-sizing: border-box;
+}
+
+.label {
+  background-color: #EFF0F1;
+  border: 1px solid rgba(51, 71, 79, 0.5);
+  border-bottom: 0;
+  box-sizing: border-box;
+  color: #33474F;
+  font-family: trenda-bold;
+  padding: 10px;
+}

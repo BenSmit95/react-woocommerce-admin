@@ -180,6 +180,64 @@ const defaultState = {
         controls: {},
         name: 'watchBraceletThickness'
     },
+    watchCaseDiameterLength: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchCaseDiameterLength'
+    },
+    watchCaseDiameterDepth: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchCaseDiameterDepth'
+    },
+    watchCaseThickness: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchCaseThickness'
+    },
+    watchCaseWaterproof: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchCaseWaterproof'
+    },
+    watchCaseGlass: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchCaseGlass'
+    },
+    watchDial: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchDial'
+    },
+    watchDialNumerals: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchDialNumerals'
+    },
+    watchMaterialBezel: {
+        value: '',
+        error: '',
+        controls: {
+            whiteOption: true
+        },
+        name: 'watchMaterialBezel'
+    },
 }
 
 const watchFormReducer = (state = defaultState, action) => {
