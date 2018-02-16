@@ -5,9 +5,11 @@ import { setWatchFormField, toggleWatchFormCheckbox } from '../../../store/actio
 
 import { watchTypes, watchBrands, watchMovement, watchCaseMaterial, watchBraceletMaterial, watchGender, watchCondition } from '../../../_secret/watchFormData';
 
-import DropdownInput from '../DropdownInput/DropdownInput';
-import TextInput from '../TextInput/TextInput';
-import CheckboxInput from '../CheckboxInput/CheckboxInput';
+import DropdownInput from '../Inputs/DropdownInput/DropdownInput';
+import TextInput from '../Inputs/TextInput/TextInput';
+import CheckboxInput from '../Inputs/CheckboxInput/CheckboxInput';
+import NumberInput from '../Inputs/NumberInput/NumberInput';
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 
 class OfferInformation extends Component {
     state = {
@@ -38,7 +40,7 @@ class OfferInformation extends Component {
         return (
             <section className={classes.OfferInformation}>
                 <div className={classes.row1}>
-                    <h3>Offer Information</h3>
+                    <SectionHeader>Offer Information</SectionHeader>
                     <DropdownInput
                         label={'Type of watch'}
                         options={watchTypes}
@@ -97,7 +99,7 @@ class OfferInformation extends Component {
                             input={this.props.inputs.watchConditionNew}
                         />
                     </div>
-                    <TextInput
+                    <NumberInput
                         label={'Year'}
                         onChange={this.props.onValueChange}
                         input={this.props.inputs.watchYear}

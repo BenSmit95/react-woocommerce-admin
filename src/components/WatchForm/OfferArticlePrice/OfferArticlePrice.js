@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+
 class ArticlePrice extends Component {
   render() {
     return (
-      <div>
-        ArticlePrice Component
-      </div>
+      <section>
+        <SectionHeader>Article price</SectionHeader>
+        <input type='number' />
+      </section>
     )
   }
 }

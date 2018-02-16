@@ -89,6 +89,36 @@ const defaultState = {
         error: '',
         controls: {},
         name: 'watchWithPapers'
+    },
+    watchAvailability: {
+        value: 'Available now',
+        error: '',
+        controls: {},
+        name: 'watchAvailability'
+    },
+    watchSeveralItemsAvailable: {
+        value: false,
+        error: '',
+        controls: {},
+        name: "watchSeveralItemsAvailable"
+    },
+    watchDomesticEstimate: {
+        value: '2-6 days',
+        error: '',
+        controls: {},
+        name: 'watchDomesticEstimate'
+    },
+    watchContinentalEstimate: {
+        value: '1-2 weeks',
+        error: '',
+        controls: {},
+        name: 'watchContinentalEstimate'
+    },
+    watchWorldwideEstimate: {
+        value: '2-3 weeks',
+        error: '',
+        controls: {},
+        name: 'watchWorldwideEstimate'
     }
 }
 
