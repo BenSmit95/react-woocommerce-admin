@@ -1,4 +1,4 @@
-import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX } from '../actions/actionTypes';
+import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX, TOGGLE_MASS_WATCHFORM_CHECKBOX } from '../actions/actionTypes';
 
 const defaultState = {
     watchType: {
@@ -273,6 +273,8 @@ const defaultState = {
         error: '',
         controls: {},
         name: 'watchFrequencyUnit'
+    },
+    watchFunctions: {
     }
 }
 
@@ -292,6 +294,14 @@ const watchFormReducer = (state = defaultState, action) => {
                 [action.fieldName]: {
                     ...state[action.fieldName],
                     value: !state[action.fieldName].value
+                }
+            }
+        case TOGGLE_MASS_WATCHFORM_CHECKBOX:
+            return {
+                ...state,
+                [action.fieldName]: {
+                    ...state[action.fieldName],
+                    [action.attribute]: (state[action.fieldName][action.attribute] ? false : true)
                 }
             }
         default:

@@ -3,7 +3,7 @@ import classes from './DropdownPane.css';
 
 const DropdownPane = (props) => {
 
-  let content = (props.visible ? props.children : null)
+  let content = (props.visible ? <div className={classes.content}>{props.children}</div> : null)
 
   return (
     <div className={classes.DropdownPane}>

@@ -1,0 +1,15 @@
+.WatchFunctions {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.WatchFunctions div {
+  width: 48%;
+}
+
+@media (min-width: 1000px) {
+  .WatchFunctions div {
+    width: 30%;
+  }
+}

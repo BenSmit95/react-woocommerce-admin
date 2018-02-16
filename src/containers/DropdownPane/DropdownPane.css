@@ -11,3 +11,8 @@
   font-family: trenda-bold;
   padding: 10px;
 }
+
+.content {
+  border-top: 1px solid rgba(51, 71, 79, 0.5); 
+  padding: 50px 0;
+}
