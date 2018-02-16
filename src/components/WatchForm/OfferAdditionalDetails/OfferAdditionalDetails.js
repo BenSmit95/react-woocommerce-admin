@@ -4,6 +4,7 @@ import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import DropdownPane from '../../../containers/DropdownPane/DropdownPane';
 import WatchBraceletDetails from './WatchBraceletDetails/WatchBraceletDetails';
 import WatchCaseDetails from './WatchCaseDetails/WatchCaseDetails';
+import WatchCaliberdetails from './WatchCaliberDetails/WatchCaliberdetails';
 
 class OfferAdditionalDetails extends Component {
   state = {
@@ -34,6 +35,13 @@ class OfferAdditionalDetails extends Component {
             label={'Case'}
           >
             <WatchCaseDetails />
+          </DropdownPane>
+          <DropdownPane
+            onClicked={() => this.handlePaneToggle(3)}
+            visible={this.state.visiblePane === 3}
+            label={'Caliber'}
+          >
+            <WatchCaliberdetails />
           </DropdownPane>
         </div>
       </section>

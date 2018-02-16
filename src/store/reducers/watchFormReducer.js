@@ -238,6 +238,42 @@ const defaultState = {
         },
         name: 'watchMaterialBezel'
     },
+    watchCaliberMovement: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchCaliberMovement'
+    },
+    watchBaseCaliber: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchBaseCaliber'
+    },
+    watchPowerReserve: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchPowerReserve'
+    },
+    watchJewelCount: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchJewelCount'
+    },
+    watchFrequency: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchFrequency'
+    },
+    watchFrequencyUnit: {
+        value: 'A/h',
+        error: '',
+        controls: {},
+        name: 'watchFrequencyUnit'
+    }
 }
 
 const watchFormReducer = (state = defaultState, action) => {

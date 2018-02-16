@@ -1,0 +1,24 @@
+.WatchCaliberDetails {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.WatchCaliberDetails > div {
+  width: 48%;
+}
+
+.watchFrequency {
+  align-items: flex-end;
+  display: flex;
+}
+
+.watchFrequency > div {
+  width: 50%;
+}
+
+@media (min-width: 1000px) {
+  .WatchCaliberDetails > div {
+    width: 30%;
+  }
+}
