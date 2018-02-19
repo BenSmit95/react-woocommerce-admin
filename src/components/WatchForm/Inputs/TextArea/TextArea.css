@@ -1,0 +1,14 @@
+.TextArea {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.TextArea textarea {
+  font-family: Trenda-Regular;
+  font-size: 18px;
+  height: 200px;
+}
+
+.TextArea label {
+  padding-bottom: 10px;
+}

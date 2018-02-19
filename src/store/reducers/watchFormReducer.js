@@ -1,4 +1,4 @@
-import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX, TOGGLE_MASS_WATCHFORM_CHECKBOX } from '../actions/actionTypes';
+import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX, TOGGLE_MASS_WATCHFORM_CHECKBOX, SET_WATCH_IMAGE } from '../actions/actionTypes';
 
 const defaultState = {
     watchType: {
@@ -274,7 +274,19 @@ const defaultState = {
         controls: {},
         name: 'watchFrequencyUnit'
     },
-    watchFunctions: {
+    watchDescription: {
+        value: '',
+        error: '',
+        controls: {},
+        name: 'watchDescription'
+    },
+    watchFunctions: {},
+    watchOthers: {},
+    watchImages: {
+        value: [],
+        error: '',
+        controls: {},
+        name: 'watchImages'
     }
 }
 
@@ -302,6 +314,14 @@ const watchFormReducer = (state = defaultState, action) => {
                 [action.fieldName]: {
                     ...state[action.fieldName],
                     [action.attribute]: (state[action.fieldName][action.attribute] ? false : true)
+                }
+            }
+        case SET_WATCH_IMAGE:
+            return {
+                ...state,
+                watchImages: {
+                    ...state.watchImages,
+                    value: action.files
                 }
             }
         default:

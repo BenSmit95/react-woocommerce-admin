@@ -1,0 +1,15 @@
+.WatchOthers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.WatchOthers div {
+  width: 48%;
+}
+
+@media (min-width: 1000px) {
+  .WatchOthers div {
+    width: 30%;
+  }
+}
