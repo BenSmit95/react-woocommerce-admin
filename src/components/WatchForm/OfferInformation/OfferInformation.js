@@ -15,6 +15,7 @@ class OfferInformation extends Component {
     state = {
         brandNotListed: false
     }
+
     render() {
 
         let brandInput = (
@@ -49,16 +50,21 @@ class OfferInformation extends Component {
                     />
                 </div>
                 <hr />
-                <div className={classes.row2}>
-                    {brandInput}
+                <div className={classes.block2}>
+                    <div className={classes.brandBlock}>
+                        {brandInput}
+                        <p className={classes.brandNotListed} onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
+                    </div>
                     <TextInput
                         label={'Model'}
                         onChange={this.props.onValueChange}
                         input={this.props.inputs.watchModel}
                     />
-                </div>
-                <p className={classes.brandNotListed} onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
-                <div className={classes.row3}>
+                    <TextInput
+                        label={'Ref. No.'}
+                        onChange={this.props.onValueChange}
+                        input={this.props.inputs.watchRef}
+                    />
                     <DropdownInput
                         label={'Movement'}
                         options={watchMovement}
@@ -131,6 +137,7 @@ const mapStateToProps = (state) => ({
         watchType: state.watchForm.watchType,
         watchBrand: state.watchForm.watchBrand,
         watchModel: state.watchForm.watchModel,
+        watchRef: state.watchForm.watchRef,
         watchMovement: state.watchForm.watchMovement,
         watchCaseMaterial: state.watchForm.watchCaseMaterial,
         watchBraceletMaterial: state.watchForm.watchBraceletMaterial,

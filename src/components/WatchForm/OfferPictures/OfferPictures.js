@@ -1,32 +1,73 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import { setWatchImage } from '../../../store/actions/index';
+import { postImages } from '../../../_secret/auth';
+import classes from './OfferPictures.css';
 
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import Dropzone from 'react-dropzone';
+import Button from '../../UI/Button/Button';
 
 class OfferPictures extends Component {
 
-  onFileSelected = (e) => {
-    const eventData = e.target.files;
-    const files = [];
-    for (let i = 0; i < eventData.length; i++) {
-      files.push({ key: i, url: URL.createObjectURL(eventData[i])});
-    }
-    console.log(files);
-    this.props.onFileSelected(files);
+  state = {
+    files: [],
+    loading: false
   }
+
+  onDrop = (acceptedFiles) => {
+    this.setState({ files: acceptedFiles });
+  }
+
+  onImagesConfirmed = () => {
+    this.setState({ loading: true })
+    postImages(this.state.files).then((urls) => {
+      console.log(urls);
+      this.props.onImagesConfirmed(urls);
+      this.setState({ loading: false });
+    });
+  }
+
   render() {
+    const preview = this.state.files.length > 0 ? (
+      <div>
+        {this.state.files.map((file, key) => (
+          <div 
+            key={`img${key}`}
+            className={classes.image}
+          >
+            <img className={'formImage'} src={file.preview} />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div>Drag images here</div>
+    )
+
     return (
       <section>
         <SectionHeader>Pictures of your watch</SectionHeader>
-        <input type="file" onChange={this.onFileSelected} multiple />
+        <Dropzone 
+          accept="image/*"
+          onDrop={this.onDrop}
+          disablePreview={false}
+        >
+          {preview}
+        </Dropzone>
+        <Button
+          type="button"
+          disabled={!(this.state.files.length > 0)} 
+          onClick={this.onImagesConfirmed}
+        >
+          Confirm Images
+        </Button>
       </section>
     )
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onFileSelected: (files) => dispatch(setWatchImage(files))
-})
+  onImagesConfirmed: (files) => dispatch(setWatchImage(files))
+});
 
 export default connect(null, mapDispatchToProps)(OfferPictures);

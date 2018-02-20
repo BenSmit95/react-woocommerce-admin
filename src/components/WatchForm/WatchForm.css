@@ -2,6 +2,13 @@
   width: 100%;
 }
 
+.WatchForm hr {
+  border-style: outset;
+  border: 0;
+  border-bottom: 1px solid #cdd4d8;
+  margin: 40px 0;
+}
+
 .WatchForm input, .WatchForm select, .WatchForm option {
   background-color: #EDEDED;
   border: none;
@@ -20,16 +27,4 @@
 .WatchForm label{
   color: #33474F;
   font-family: Trenda-Bold;
-}
-
-.submit {
-  background-color: #C5963D;
-  border: 0;
-  color: #FAFAFA;
-  padding: 15px;
-}
-
-.submit:hover {
-  background-color: #896c42;
-  cursor: pointer;
 }

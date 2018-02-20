@@ -86,6 +86,7 @@ const transformWatchData = (data) => {
         options: [data.watchWorldwideEstimate.value]
       },
     ],
+    images: data.watchImages.value.map((image, index) => ({ src: image, position: index }))
   };
 
   return output;

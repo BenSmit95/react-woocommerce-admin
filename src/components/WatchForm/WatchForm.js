@@ -9,6 +9,8 @@ import OfferOptions from './OfferOptions/OfferOptions';
 import OfferArticlePrice from './OfferArticlePrice/OfferArticlePrice';
 import OfferAdditionalDetails from './OfferAdditionalDetails/OfferAdditionalDetails';
 import OfferPictures from './OfferPictures/OfferPictures';
+import OfferStatus from './OfferStatus/OfferStatus';
+import Button from '../UI/Button/Button';
 
 class WatchForm extends Component {
 
@@ -21,16 +23,21 @@ class WatchForm extends Component {
         return (
             <form className={classes.WatchForm} onSubmit={this.handleSubmit}>
                 <OfferInformation />
+                <hr />
                 <OfferOptions />
+                <hr />
                 <OfferArticlePrice />
+                <hr />
                 <OfferAdditionalDetails />
+                <hr />
+                <OfferStatus />
+                <hr />
                 <OfferPictures />
-                <button
+                <Button
                     onClick={this.handleSubmit}
-                    className={classes.submit}
                 >
                     Save Offer
-                </button>
+                </Button>
             </form>
         )
     }

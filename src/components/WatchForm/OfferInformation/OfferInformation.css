@@ -1,6 +1,5 @@
 .OfferInformation {
-  border-bottom: 1px solid #cdd4d8;
-  padding: 50px 0;
+  padding-top: 50px;
 }
 
 .OfferInformation div {
@@ -18,25 +17,19 @@
   padding: 10px 0;
 }
 
-.row2 {
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-.row2 > div {
-  flex: 1 1 200px;
-  max-width: 48%;
-}
-
-.row3 {
+.block2 {
   flex-flow: row wrap;
   justify-content: space-between;
 }
 
-.row3 > div {
+.block2 > div {
   flex: 1 1 48%;
   max-width: 48%;
-  margin: 10px 0;
+}
+
+.brandBlock {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .row4 {
@@ -89,16 +82,12 @@
 }
 
 @media (min-width: 1000px) {
-  .row2 {
-    justify-content: flex-start
+  .block2 {
+    justify-content: space-between;
   }
 
-  .row2 > div {
+  .block2 > div {
     max-width: 30%;
-  }
-
-  .row2 > div:first-child {
-    margin-right: 5%;
   }
 
   .row3 > div {
