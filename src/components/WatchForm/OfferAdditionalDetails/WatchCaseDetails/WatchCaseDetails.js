@@ -4,8 +4,8 @@ import { watchCaseWaterproof, watchCaseGlass, watchDial, watchDialNumerals, watc
 import { setWatchFormField } from '../../../../store/actions/index';
 import classes from './WatchCaseDetails.css';
 
-import NumberInput from '../../Inputs/NumberInput/NumberInput';
-import DropdownInput from '../../Inputs/DropdownInput/DropdownInput';
+import NumberInput from '../../../UI/Inputs/NumberInput/NumberInput';
+import DropdownInput from '../../../UI/Inputs/DropdownInput/DropdownInput';
 
 
 

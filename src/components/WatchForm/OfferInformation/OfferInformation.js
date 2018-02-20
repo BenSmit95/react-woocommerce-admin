@@ -5,10 +5,10 @@ import { setWatchFormField, toggleWatchFormCheckbox } from '../../../store/actio
 
 import { watchTypes, watchBrands, watchMovement, watchCaseMaterial, watchBraceletMaterial, watchGender, watchCondition } from '../../../_secret/watchFormData';
 
-import DropdownInput from '../Inputs/DropdownInput/DropdownInput';
-import TextInput from '../Inputs/TextInput/TextInput';
-import CheckboxInput from '../Inputs/CheckboxInput/CheckboxInput';
-import NumberInput from '../Inputs/NumberInput/NumberInput';
+import DropdownInput from '../../UI/Inputs/DropdownInput/DropdownInput';
+import TextInput from '../../UI/Inputs/TextInput/TextInput';
+import CheckboxInput from '../../UI/Inputs/CheckboxInput/CheckboxInput';
+import NumberInput from '../../UI/Inputs/NumberInput/NumberInput';
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 
 class OfferInformation extends Component {

@@ -4,7 +4,7 @@ import { setWatchFormField, toggleWatchFormCheckbox } from '../../../store/actio
 import classes from './OfferArticlePrice.css';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
-import NumberInput from '../Inputs/NumberInput/NumberInput';
+import NumberInput from '../../UI/Inputs/NumberInput/NumberInput';
 
 class ArticlePrice extends Component {
   render() {

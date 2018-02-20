@@ -4,9 +4,9 @@ import { setWatchFormField } from '../../../../store/actions/index';
 import { watchFrequencyUnit } from '../../../../_secret/watchFormData';
 import classes from './WatchCaliberDetails.css';
 
-import NumberInput from '../../Inputs/NumberInput/NumberInput';
-import TextInput from '../../Inputs/TextInput/TextInput';
-import DropdownInput from '../../Inputs/DropdownInput/DropdownInput';
+import NumberInput from '../../../UI/Inputs/NumberInput/NumberInput';
+import TextInput from '../../../UI/Inputs/TextInput/TextInput';
+import DropdownInput from '../../../UI/Inputs/DropdownInput/DropdownInput';
 
 class WatchCaliberDetails extends Component {
   render() {

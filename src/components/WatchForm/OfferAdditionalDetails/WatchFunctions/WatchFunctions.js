@@ -4,7 +4,7 @@ import { watchFunctions } from '../../../../_secret/watchFormData';
 import { toggleMassWatchFormCheckbox } from '../../../../store/actions/index';
 import classes from './WatchFunctions.css';
 
-import MassCheckboxInput from '../../Inputs/MassCheckboxInput/MassCheckboxInput';
+import MassCheckboxInput from '../../../UI/Inputs/MassCheckboxInput/MassCheckboxInput';
 
 class WatchFunctions extends Component {
   render() {

@@ -4,8 +4,8 @@ import { watchAvailability, watchDeliveryEstimate } from '../../../_secret/watch
 import { setWatchFormField, toggleWatchFormCheckbox } from '../../../store/actions/index';
 import classes from './OfferOptions.css';
 
-import DropDownInput from '../Inputs/DropdownInput/DropdownInput';
-import CheckboxInput from '../Inputs/CheckboxInput/CheckboxInput';
+import DropDownInput from '../../UI/Inputs/DropdownInput/DropdownInput';
+import CheckboxInput from '../../UI/Inputs/CheckboxInput/CheckboxInput';
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 
 class OfferOptions extends Component {

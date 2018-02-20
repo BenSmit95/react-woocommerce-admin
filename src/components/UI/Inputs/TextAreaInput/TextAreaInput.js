@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './TextArea.css';
+import classes from './TextAreaInput.css';
 
-const TextArea = (props) => (
+const TextAreaInput = (props) => (
   <div className={classes.TextArea}>
     <label>{props.label}</label>
     <textarea 
@@ -14,4 +14,4 @@ const TextArea = (props) => (
   </div>
 )
 
-export default TextArea;
+export default TextAreaInput;

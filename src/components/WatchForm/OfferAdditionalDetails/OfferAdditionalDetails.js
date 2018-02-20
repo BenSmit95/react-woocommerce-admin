@@ -10,7 +10,7 @@ import WatchCaseDetails from './WatchCaseDetails/WatchCaseDetails';
 import WatchCaliberdetails from './WatchCaliberDetails/WatchCaliberdetails';
 import WatchFunctions from './WatchFunctions/WatchFunctions';
 import WatchOthers from './WatchOthers/WatchOthers';
-import TextArea from '../Inputs/TextArea/TextArea';
+import TextAreaInput from '../../UI/Inputs/TextAreaInput/TextAreaInput';
 
 class OfferAdditionalDetails extends Component {
   state = {
@@ -65,7 +65,7 @@ class OfferAdditionalDetails extends Component {
           </DropdownPane>
         </div>
         <div className={classes.textinput}>
-          <TextArea
+          <TextAreaInput
             label={'Please describe the item in detail'}
             input={this.props.watchDescription}
             onChange={this.props.onValueChange}

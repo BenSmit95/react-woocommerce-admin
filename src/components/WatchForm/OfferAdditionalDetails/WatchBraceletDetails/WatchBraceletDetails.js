@@ -5,8 +5,8 @@ import { setWatchFormField } from '../../../../store/actions/index';
 
 import classes from './WatchBraceletDetails.css';
 
-import DropdownInput from '../../Inputs/DropdownInput/DropdownInput';
-import NumberInput from '../../Inputs/NumberInput/NumberInput';
+import DropdownInput from '../../../UI/Inputs/DropdownInput/DropdownInput';
+import NumberInput from '../../../UI/Inputs/NumberInput/NumberInput';
 
 class BraceletDetails extends Component {
   render() {
