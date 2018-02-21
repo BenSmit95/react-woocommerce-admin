@@ -1,9 +1,40 @@
 .image {
-  width: 200px;
+  flex: 0 0 200px;
   height: 200px;
+  margin: 10px;
+  position: relative;
 }
 
 .image img {
   height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.removeButton {
+  background-color: #D24D21;
+  border: 0;
+  border-radius: 50%;
+  color: #FAFAFA;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 20px;
+  z-index: 1000;
+}
+
+.preview {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.dropzone {
+  border: 5px dashed #ccc;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 200px;
+  padding: 20px;
   width: 100%;
 }

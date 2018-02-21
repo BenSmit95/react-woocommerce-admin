@@ -1,30 +1,66 @@
-import { SET_WATCHFORM_FIELD, TOGGLE_WATCHFORM_CHECKBOX, TOGGLE_MASS_WATCHFORM_CHECKBOX, SET_WATCH_IMAGE } from './actionTypes';
+import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformData';
-import { postProduct } from '../../_secret/auth';
+import { postProduct, postImages } from '../../_secret/auth';
 
 export const setWatchFormField = (fieldName, value) => ({
-    type: SET_WATCHFORM_FIELD,
+    type: actionTypes.SET_WATCHFORM_FIELD,
     fieldName,
     value
 });
 
 export const toggleWatchFormCheckbox = (fieldName) => ({
-    type: TOGGLE_WATCHFORM_CHECKBOX,
+    type: actionTypes.TOGGLE_WATCHFORM_CHECKBOX,
     fieldName
 });
 
 export const toggleMassWatchFormCheckbox = (fieldName, attribute) => ({
-    type: TOGGLE_MASS_WATCHFORM_CHECKBOX,
+    type: actionTypes.TOGGLE_MASS_WATCHFORM_CHECKBOX,
     fieldName,
     attribute
 })
 
-export const setWatchImage = (files) => {
-    return {
-        type: SET_WATCH_IMAGE,
-        files
+export const setWatchImages = (urls) => ({
+    type: actionTypes.SET_WATCH_IMAGES,
+    urls
+});
+
+// These are added to the list of removeable id's after upload
+export const setRemoveIds = (ids) => ({
+    type: actionTypes.SET_REMOVE_IDS,
+    ids
+});
+
+export const startLoading = () => ({
+    type: actionTypes.START_LOADING
+});
+
+export const stopLoading = () => ({
+    type: actionTypes.STOP_LOADING
+})
+
+export const confirmImages = (files) => {
+    return (dispatch) => {
+        dispatch(startLoading());
+        postImages(files)
+            .then((list) => {
+                console.log(list);
+                const urlList = [];
+                const idList = [];
+                list.forEach((listItem) => {
+                    urlList.push(listItem.url);
+                    idList.push(listItem.id);
+                });
+                dispatch(setRemoveIds(idList));
+                dispatch(setWatchImages(urlList));
+                dispatch(stopLoading());
+            })
+            .catch((error) => {
+                console.log(error);
+                dispatch(stopLoading());
+            });
+        
     }
-}
+} 
 
 export const postWatchFormOffer = () => {
     return (dispatch, getState) => {

@@ -13,7 +13,8 @@ const transformWatchData = (data) => {
     name: `${data.watchBrand.value} ${data.watchModel.value}`,
     type: 'simple',
     regular_price: `${Number(data.watchPrice.value).toFixed(2)}`,
-    description: `${data.watchDescription.value}`,
+    description: data.watchDescription.value,
+    short_description: data.watchInternalCode.value,
     categories: [
       {
         id: watchCategories.WATCHES

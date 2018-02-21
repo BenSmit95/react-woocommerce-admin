@@ -303,5 +303,9 @@ export const defaultState = {
     error: '',
     controls: {},
     name: 'watchInternalComment'
-  }
+  },
+  watchImageRemoveList: [
+    
+  ],
+  loading: false
 }
