@@ -1,0 +1,14 @@
+.Layout {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.main {
+  margin: 0 auto;
+}
+
+@media (min-width: 1000px) {
+  .Layout {
+    flex-flow: row wrap;
+  }
+}

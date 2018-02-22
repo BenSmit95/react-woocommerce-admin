@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformData';
-import { postProduct, postImages, removeImages } from '../../_secret/auth';
+import { postProduct, postImages } from '../../_secret/auth';
 
 export const setWatchFormField = (fieldName, value) => ({
     type: actionTypes.SET_WATCHFORM_FIELD,
@@ -31,11 +31,11 @@ export const setRemoveIds = (ids) => ({
 });
 
 export const startLoading = () => ({
-    type: actionTypes.START_LOADING
+    type: actionTypes.WATCHFORM_START_LOADING
 });
 
 export const stopLoading = () => ({
-    type: actionTypes.STOP_LOADING
+    type: actionTypes.WATCHFORM_STOP_LOADING
 })
 
 export const confirmImages = (files) => {

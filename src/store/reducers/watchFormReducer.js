@@ -46,12 +46,12 @@ const watchFormReducer = (state = defaultState, action) => {
                     ...action.ids
                 ]
             }
-        case actionTypes.START_LOADING:
+        case actionTypes.WATCHFORM_START_LOADING:
             return {
                 ...state,
                 loading: true,
             };
-        case actionTypes.STOP_LOADING:
+        case actionTypes.WATCHFORM_STOP_LOADING:
             return {
                 ...state,
                 loading: false,
