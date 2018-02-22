@@ -1,3 +1,8 @@
+import { 
+  watchFunctions,
+  watchOthers
+} from '../../../_secret/watchFormData';
+
 export const defaultState = {
   watchType: {
     value: 'Watch',
@@ -284,8 +289,20 @@ export const defaultState = {
     controls: {},
     name: 'watchDescription'
   },
-  watchFunctions: {},
-  watchOthers: {},
+  watchFunctions: watchFunctions.reduce((acc, func) => {
+    acc[func.name] = {
+      value: false,
+      label: func.label
+    }
+    return acc;
+  }, {}),
+  watchOthers: watchOthers.reduce((acc, other) => {
+    acc[other.name] = {
+      value: false,
+      label: other.label
+    }
+    return acc;
+  }, {}),
   watchImages: {
     value: [],
     error: '',

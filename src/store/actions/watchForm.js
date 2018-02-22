@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformData';
-import { postProduct, postImages } from '../../_secret/auth';
+import { postProduct, postImages, removeImages } from '../../_secret/auth';
 
 export const setWatchFormField = (fieldName, value) => ({
     type: actionTypes.SET_WATCHFORM_FIELD,
@@ -13,10 +13,10 @@ export const toggleWatchFormCheckbox = (fieldName) => ({
     fieldName
 });
 
-export const toggleMassWatchFormCheckbox = (fieldName, attribute) => ({
+export const toggleMassWatchFormCheckbox = (fieldName, name) => ({
     type: actionTypes.TOGGLE_MASS_WATCHFORM_CHECKBOX,
     fieldName,
-    attribute
+    name
 })
 
 export const setWatchImages = (urls) => ({
@@ -64,8 +64,10 @@ export const confirmImages = (files) => {
 
 export const postWatchFormOffer = () => {
     return (dispatch, getState) => {
-        const watchForm = getState().watchForm;
+        const watchForm = { ...getState().watchForm };
         const data = transformData(watchForm);
-        postProduct(data);
+        console.log(watchForm.watchImageRemoveList);
+        postProduct(data, watchForm.watchImageRemoveList);
+        
     }
 }

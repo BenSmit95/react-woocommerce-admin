@@ -141,7 +141,7 @@ const mapStateToProps = (state) => ({
         watchMovement: state.watchForm.watchMovement,
         watchCaseMaterial: state.watchForm.watchCaseMaterial,
         watchBraceletMaterial: state.watchForm.watchBraceletMaterial,
-        watchGender: state.watchForm.watchBraceletMaterial,
+        watchGender: state.watchForm.watchGender,
         watchCondition: state.watchForm.watchCondition,
         watchConditionNew: state.watchForm.watchConditionNew,
         watchYear: state.watchForm.watchYear,

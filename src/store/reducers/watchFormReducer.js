@@ -24,7 +24,10 @@ const watchFormReducer = (state = defaultState, action) => {
                 ...state,
                 [action.fieldName]: {
                     ...state[action.fieldName],
-                    [action.attribute]: (state[action.fieldName][action.attribute] ? false : true)
+                    [action.name]: {
+                        ...state[action.fieldName][action.name],
+                        value: (state[action.fieldName][action.name].value ? false : true),
+                    }
                 }
             }
         case actionTypes.SET_WATCH_IMAGES:
@@ -40,7 +43,7 @@ const watchFormReducer = (state = defaultState, action) => {
                 ...state,
                 watchImageRemoveList: [
                     ...state.watchImageRemoveList,
-                    action.ids
+                    ...action.ids
                 ]
             }
         case actionTypes.START_LOADING:
