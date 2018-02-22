@@ -8,7 +8,9 @@ import Button from '../../../components/UI/Button/Button';
 class WatchOverview extends Component {
 
   componentDidMount() {
-    this.props.onFetchWatches();
+    if(!this.props.watches.length > 0) {
+      this.props.onFetchWatches();
+    }
   }
 
   render() {

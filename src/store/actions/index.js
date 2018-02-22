@@ -1,9 +1,11 @@
 export { 
+  resetWatchForm,
   setWatchFormField, 
   toggleWatchFormCheckbox, 
   toggleMassWatchFormCheckbox, 
   postWatchFormOffer, 
-  confirmImages
+  confirmImages,
+  fetchWatch
 } from './watchForm';
 
 export {

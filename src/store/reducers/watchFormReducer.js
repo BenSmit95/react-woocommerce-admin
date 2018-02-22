@@ -49,13 +49,15 @@ const watchFormReducer = (state = defaultState, action) => {
         case actionTypes.WATCHFORM_START_LOADING:
             return {
                 ...state,
-                loading: true,
+                imageLoading: true,
             };
         case actionTypes.WATCHFORM_STOP_LOADING:
             return {
                 ...state,
-                loading: false,
+                imageLoading: false,
             }
+        case actionTypes.RESET_WATCHFORM:
+            return defaultState;
         default:
             return state;
     }

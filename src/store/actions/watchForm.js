@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformData';
-import { postProduct, postImages } from '../../_secret/auth';
+import { mapWatchAttribute } from '../../utils/data/mapWatch'
+import { postProduct, postImages, getProductById } from '../../_secret/auth';
 
 export const setWatchFormField = (fieldName, value) => ({
     type: actionTypes.SET_WATCHFORM_FIELD,
@@ -71,3 +72,23 @@ export const postWatchFormOffer = () => {
         
     }
 }
+
+export const fetchWatch = (id) => {
+    return (dispatch) => {
+        dispatch(resetWatchForm());
+        getProductById(id)
+        .then((watch) => {
+            console.log(watch)
+            watch.attributes.forEach((attribute) => {
+                let fieldName = mapWatchAttribute(attribute);
+                if(fieldName) dispatch(setWatchFormField(fieldName, attribute.options[0]));
+            });
+            dispatch(setWatchFormField('watchPrice', watch.price));
+        });
+        
+    }
+}
+
+export const resetWatchForm = () => ({
+    type: actionTypes.RESET_WATCHFORM
+});

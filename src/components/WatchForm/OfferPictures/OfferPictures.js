@@ -79,7 +79,7 @@ class OfferPictures extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  loading: state.watchForm.loading
+  loading: state.watchForm.imageLoading
 });
 
 const mapDispatchToProps = (dispatch) => ({
