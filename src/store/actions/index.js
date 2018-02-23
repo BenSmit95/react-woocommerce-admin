@@ -1,5 +1,5 @@
 export { 
-  resetWatchForm,
+  resetWatchform,
   setWatchFormField, 
   toggleWatchFormCheckbox, 
   toggleMassWatchFormCheckbox, 

@@ -29,8 +29,27 @@ class OfferPictures extends Component {
   }
 
   render() {
-    const preview = this.state.files.length > 0 ? (
+    const preview = (this.state.files.length > 0 || this.props.importImages.length > 0) ? (
       <div className={classes.preview}>
+        {this.props.importImages.map((image, key) => (
+          <div
+            key={`importImg${key}`}
+            className={classes.image}
+          >
+            <img
+              alt="preview"
+              className={'formImage'}
+              src={image}
+            />
+            <button
+              onClick={(e) => this.handleRemoveImage(e, key)}
+              type="button"
+              className={classes.removeButton}
+            >
+              X
+            </button>
+          </div>
+        ))}
         {this.state.files.map((file, key) => (
           <div
             key={`img${key}`}
@@ -79,7 +98,8 @@ class OfferPictures extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  loading: state.watchForm.imageLoading
+  loading: state.watchForm.imageLoading,
+  importImages: state.watchForm.watchImportImages
 });
 
 const mapDispatchToProps = (dispatch) => ({

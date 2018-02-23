@@ -324,5 +324,9 @@ export const defaultState = {
   watchImageRemoveList: [
     
   ],
+  watchImportImages: [
+
+  ],
+  imageLoading: false,
   loading: false
 }

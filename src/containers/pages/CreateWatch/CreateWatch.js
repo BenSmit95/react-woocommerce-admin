@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../../store/actions/index';
 import classes from './CreateWatch.css';
 
 import WatchForm from '../../../components/WatchForm/WatchForm';
 
 class CreateWatch extends Component {
+
+    componentDidMount() {
+        this.props.onResetWatchform();
+    }
+
     render() {
         return (
             <div className={classes.Container}>
@@ -14,4 +21,8 @@ class CreateWatch extends Component {
     }
 }
 
-export default CreateWatch;
+const mapDispatchToProps = (dispatch) => ({
+    onResetWatchform: () => dispatch(actions.resetWatchform())
+});
+
+export default connect(null, mapDispatchToProps)(CreateWatch);

@@ -8,7 +8,6 @@ import MassCheckboxInput from '../../../UI/Inputs/MassCheckboxInput/MassCheckbox
 
 class WatchFunctions extends Component {
   render() {
-
     const checkboxes = watchFunctions.map((functionObj, index) => (
       <MassCheckboxInput 
         key={`functions${index}`}
@@ -16,6 +15,7 @@ class WatchFunctions extends Component {
         name={functionObj.name}
         fieldName={'watchFunctions'}
         onCheckboxToggle={this.props.onCheckboxToggle}
+        checked={this.props.functions[functionObj.name].value}
       />
     ))
 
@@ -27,8 +27,12 @@ class WatchFunctions extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  functions: state.watchForm.watchFunctions
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onCheckboxToggle: (fieldName, attribute) => dispatch(toggleMassWatchFormCheckbox(fieldName, attribute))
-})
+});
 
-export default connect(undefined, mapDispatchToProps)(WatchFunctions);
+export default connect(mapStateToProps, mapDispatchToProps)(WatchFunctions);

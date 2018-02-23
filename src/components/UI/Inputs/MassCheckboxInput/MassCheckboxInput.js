@@ -7,6 +7,7 @@ const MassCheckboxInput = (props) => (
       type="checkbox"
       name={props.name}
       onChange={() => props.onCheckboxToggle(props.fieldName, props.name)}
+      checked={props.checked}
     />
     <label htmlFor={props.name}>{props.label}</label>
   </div>

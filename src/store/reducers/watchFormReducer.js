@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { defaultState } from './defaultState/watchForm';
 
 const watchFormReducer = (state = defaultState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.SET_WATCHFORM_FIELD:
             return {
                 ...state,
@@ -11,7 +11,7 @@ const watchFormReducer = (state = defaultState, action) => {
                     value: action.value
                 }
             }
-        case actionTypes.TOGGLE_WATCHFORM_CHECKBOX: 
+        case actionTypes.TOGGLE_WATCHFORM_CHECKBOX:
             return {
                 ...state,
                 [action.fieldName]: {
@@ -46,15 +46,20 @@ const watchFormReducer = (state = defaultState, action) => {
                     ...action.ids
                 ]
             }
-        case actionTypes.WATCHFORM_START_LOADING:
+        case actionTypes.WATCHFORM_START_IMAGE_LOADING:
             return {
                 ...state,
                 imageLoading: true,
             };
-        case actionTypes.WATCHFORM_STOP_LOADING:
+        case actionTypes.WATCHFORM_STOP_IMAGE_LOADING:
             return {
                 ...state,
                 imageLoading: false,
+            }
+        case actionTypes.SET_IMPORT_IMAGES:
+            return {
+                ...state,
+                watchImportImages: action.images
             }
         case actionTypes.RESET_WATCHFORM:
             return defaultState;

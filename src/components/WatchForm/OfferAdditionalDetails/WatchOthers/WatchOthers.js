@@ -16,6 +16,7 @@ class WatchOthers extends Component {
         name={functionObj.name}
         fieldName={'watchOthers'}
         onCheckboxToggle={this.props.onCheckboxToggle}
+        checked={this.props.others[functionObj.name].value}
       />
     ))
 
@@ -27,8 +28,12 @@ class WatchOthers extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  others: state.watchForm.watchOthers
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onCheckboxToggle: (fieldName, attribute) => dispatch(toggleMassWatchFormCheckbox(fieldName, attribute))
 })
 
-export default connect(undefined, mapDispatchToProps)(WatchOthers);
+export default connect(mapStateToProps, mapDispatchToProps)(WatchOthers);

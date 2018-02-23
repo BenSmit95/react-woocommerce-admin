@@ -13,6 +13,16 @@ const transformWatchData = (data) => {
     if (data.watchOthers[i].value) watchOthers.push(data.watchOthers[i].label)
   }
 
+  let watchCaseDiameter = '';
+  if(data.watchCaseDiameterLength.value && data.watchCaseDiameterDepth.value) {
+    watchCaseDiameter = `${data.watchCaseDiameterLength.value} x ${data.watchCaseDiameterDepth.value}`;
+  }
+
+  let watchFrequency = '';
+  if(data.watchFrequency.value) {
+    watchFrequency = `${data.watchFrequency.value} ${data.watchFrequencyUnit.value}`;
+  }
+
   const watchScopeOfDelivery = [];
   if(data.watchWithBox.value) watchScopeOfDelivery.push('With Box');
   if(data.watchWithPapers.value) watchScopeOfDelivery.push('With Papers')
@@ -55,7 +65,7 @@ const transformWatchData = (data) => {
         options: [data.watchCondition.value]
       }, {
         id: watchAttributes.NEW,
-        options: [(data.watchConditionNew.value ? 'NEW' : '')]
+        options: [(data.watchConditionNew.value ? 'NEW' : 'OLD')]
       }, {
         id: watchAttributes.YEAR,
         options: [data.watchYear.value]
@@ -100,7 +110,7 @@ const transformWatchData = (data) => {
         options: [data.watchBraceletThickness.value]
       }, {
         id: watchAttributes.CASE_DIAMETER,
-        options: [`${data.watchCaseDiameterLength.value} x ${data.watchCaseDiameterDepth.value}`]
+        options: [watchCaseDiameter]
       }, {
         id: watchAttributes.CASE_THICKNESS,
         options: [data.watchCaseThickness.value]
@@ -133,13 +143,16 @@ const transformWatchData = (data) => {
         options: [data.watchJewelCount.value]
       }, {
         id: watchAttributes.FREQUENCY,
-        options: [`${data.watchFrequency.value} ${data.watchFrequencyUnit.value}`]
+        options: [watchFrequency]
       }, {
         id: watchAttributes.FUNCTIONS,
         options: watchFunctions
       }, {
         id: watchAttributes.OTHERS,
         options: watchOthers
+      }, {
+        id: watchAttributes.INTERNAL_COMMENT,
+        options: [data.watchInternalComment.value]
       }
     ],
     images: data.watchImages.value.map((image, index) => ({ src: image, position: index }))
