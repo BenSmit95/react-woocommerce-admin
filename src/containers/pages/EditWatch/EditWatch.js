@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
+import classes from './EditWatch.css';
 
 import WatchForm from '../../../components/WatchForm/WatchForm';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 
 class EditWatch extends Component {
 
@@ -19,15 +21,21 @@ class EditWatch extends Component {
 
   render() {
     let content;
-    if(this.props.loading) {
-      content = <Spinner />
+    if (this.props.loading) {
+      content = (
+        <div className={classes.spinner}>
+          <Spinner />
+        </div>
+      )
     } else {
-      content = <WatchForm onSubmit={this.onSubmit}/>
+      content = <WatchForm onSubmit={this.onSubmit} />
     }
     return (
-      <div>
-        <h1>Edit watch</h1>
-        {content}
+      <div className={classes.EditWatch}>
+        <PageHeader>Edit watch</PageHeader>
+        <div className={classes.content}>
+          {content}
+        </div>
       </div>
     );
   };

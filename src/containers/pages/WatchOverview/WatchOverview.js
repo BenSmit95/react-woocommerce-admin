@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classes from './WatchOverview.css';
+
 import ProductList from '../../../components/ProductList/ProductList';
 import * as actions from '../../../store/actions/index';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Button from '../../../components/UI/Button/Button';
+import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 
 class WatchOverview extends Component {
 
@@ -23,15 +26,20 @@ class WatchOverview extends Component {
         />
     }
     return (
-      <div>
-        <div>
-          <Button
-            onClick={this.props.onFetchWatches}
-          >
-            Fetch Watches
-          </Button>
+      <div className={classes.WatchOverview}>
+        <div className={classes.pane}>
+          <PageHeader>Manage Watches</PageHeader>
+          <div className={classes.controls}>
+            <Button
+              onClick={this.props.onFetchWatches}
+            >
+              Fetch Watches
+            </Button>
+          </div>
         </div>
-        {content}
+        <div className={classes.content}>
+          {content}
+        </div>
       </div>
     );
   };

@@ -1,3 +1,26 @@
 .NavigationItem {
-  
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.navLink {
+  border-bottom: 1px solid #cdd4d8;
+  box-sizing: border-box;
+  color: #33474F;
+  font-family: Trenda-Bold;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.navLink:hover {
+  background-color: #CDD4D8;
+  color: #33474F;
+}
+
+.active {
+  background-color: #33474F;
+  color: #FAFAFA;
 }

@@ -4,10 +4,12 @@ import classes from './Layout.css';
 
 const Layout = (props) => (
     <div className={classes.Layout}>
-        <Navigation />
-        <div className={classes.main}>
-            {props.children}
+        <div className={classes.nav}>
+            <Navigation />
         </div>
+        <main className={classes.main}>
+            {props.children}
+        </main>
     </div>
 );
 

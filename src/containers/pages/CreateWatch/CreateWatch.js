@@ -4,6 +4,7 @@ import * as actions from '../../../store/actions/index';
 import classes from './CreateWatch.css';
 
 import WatchForm from '../../../components/WatchForm/WatchForm';
+import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 
 class CreateWatch extends Component {
 
@@ -13,9 +14,11 @@ class CreateWatch extends Component {
 
     render() {
         return (
-            <div className={classes.Container}>
-                <h1>Create a new Offer</h1>
-                <WatchForm onSubmit={this.props.onSubmit}/>
+            <div className={classes.CreateWatch}>
+                <PageHeader>Create a new Offer</PageHeader>
+                <div className={classes.content}>
+                    <WatchForm onSubmit={this.props.onSubmit} />
+                </div>
             </div>
         )
     }
