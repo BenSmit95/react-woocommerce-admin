@@ -9,7 +9,6 @@ import store from './store/setupStore';
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory();
-console.log(history);
 
 const jsx = (
     <Provider store={store}>

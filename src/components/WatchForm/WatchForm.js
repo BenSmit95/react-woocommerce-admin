@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import classes from './WatchForm.css';
-
-import { postWatchFormOffer } from '../../store/actions/index';
 
 import OfferInformation from './OfferInformation/OfferInformation';
 import OfferOptions from './OfferOptions/OfferOptions';
@@ -43,8 +40,6 @@ class WatchForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    onSubmit: () => dispatch(postWatchFormOffer())
-}) 
 
-export default connect(undefined, mapDispatchToProps)(WatchForm);
+
+export default WatchForm;

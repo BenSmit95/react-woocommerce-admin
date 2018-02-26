@@ -27,6 +27,9 @@ const transformWatchData = (data) => {
   if(data.watchWithBox.value) watchScopeOfDelivery.push('With Box');
   if(data.watchWithPapers.value) watchScopeOfDelivery.push('With Papers')
 
+  const importImages = data.watchImportImages.map(image => image.url);
+  const images = importImages.concat(data.watchImages.value);
+
   const output = {
     name: `${data.watchBrand.value} ${data.watchModel.value}`,
     type: 'simple',
@@ -155,7 +158,10 @@ const transformWatchData = (data) => {
         options: [data.watchInternalComment.value]
       }
     ],
-    images: data.watchImages.value.map((image, index) => ({ src: image, position: index }))
+    images: images.map((image, index) => ({
+      src: image,
+      position: index
+    }))
   };
   console.log(output);
   return output;

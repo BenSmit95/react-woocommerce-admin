@@ -20,6 +20,11 @@ class OfferPictures extends Component {
     this.setState({ files: this.state.files.filter((file, index) => index !== key )});
   }
 
+  handleRemoveImportImage = (e, id) => {
+    e.stopPropagation();
+    this.props.onRemoveImportImage(id);
+  }
+
   onDrop = (acceptedFiles) => {
     this.setState({ files: this.state.files.concat(acceptedFiles) })
   }
@@ -39,10 +44,10 @@ class OfferPictures extends Component {
             <img
               alt="preview"
               className={'formImage'}
-              src={image}
+              src={image.url}
             />
             <button
-              onClick={(e) => this.handleRemoveImage(e, key)}
+              onClick={(e) => this.handleRemoveImportImage(e, image.id)}
               type="button"
               className={classes.removeButton}
             >
@@ -87,7 +92,8 @@ class OfferPictures extends Component {
         </Dropzone>
         <Button
           type="button"
-          disabled={!(this.state.files.length > 0) || this.props.loading}
+          // disable if no images, or if the component state is loading.
+          disabled={ ((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
           onClick={this.onImagesConfirmed}
         >
           Confirm Images
@@ -103,7 +109,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onImagesConfirmed: (files) => dispatch(actions.confirmImages(files))
+  onImagesConfirmed: (files) => dispatch(actions.confirmImages(files)),
+  onRemoveImportImage: (id) => dispatch(actions.startRemoveImportImage(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OfferPictures);

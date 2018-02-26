@@ -3,9 +3,11 @@ export {
   setWatchFormField, 
   toggleWatchFormCheckbox, 
   toggleMassWatchFormCheckbox, 
-  postWatchFormOffer, 
+  postWatchFormOffer,
+  updateWatchFormOffer,
   confirmImages,
-  fetchWatch
+  fetchWatch,
+  startRemoveImportImage,
 } from './watchForm';
 
 export {

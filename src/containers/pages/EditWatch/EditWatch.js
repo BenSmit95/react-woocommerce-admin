@@ -13,13 +13,16 @@ class EditWatch extends Component {
     this.props.onFetchWatch(id);
   }
 
+  onSubmit = () => {
+    this.props.onSubmit(Number(this.props.location.pathname.split('/').pop()));
+  }
+
   render() {
     let content;
-    console.log(this.props.loading);
     if(this.props.loading) {
       content = <Spinner />
     } else {
-      content = <WatchForm />
+      content = <WatchForm onSubmit={this.onSubmit}/>
     }
     return (
       <div>
@@ -35,7 +38,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onFetchWatch: (id) => dispatch(actions.fetchWatch(id))
+  onFetchWatch: (id) => dispatch(actions.fetchWatch(id)),
+  onSubmit: (id) => dispatch(actions.updateWatchFormOffer(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditWatch);

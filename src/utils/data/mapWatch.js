@@ -38,6 +38,5 @@ export const mapWatchAttribute = (attribute) => {
 
 export const mapWatchCheckbox = (option, list) => {
   const item = list.find((element) => element.label === option).name;
-  console.log(item);
   return item;
 } 

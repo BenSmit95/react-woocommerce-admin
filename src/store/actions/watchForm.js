@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformData';
 import { mapWatchAttribute, mapWatchCheckbox } from '../../utils/data/mapWatch';
 import { stripHTML } from '../../utils/data/utility';
-import { postProduct, postImages, getProductById } from '../../_secret/auth';
+import { postProduct, postImages, getProductById, updateProduct } from '../../_secret/auth';
 import * as watchAttributes from '../../_secret/watchAttributes';
 import { watchFunctions, watchOthers } from '../../_secret/watchFormData';
 
@@ -72,7 +72,14 @@ export const postWatchFormOffer = () => {
         const data = transformData(watchForm);
         console.log(watchForm.watchImageRemoveList);
         postProduct(data, watchForm.watchImageRemoveList);
+    }
+}
 
+export const updateWatchFormOffer = (id) => {
+    return (dispatch, getState) => {
+        const watchForm = {...getState().watchForm };
+        const data = transformData(watchForm);
+        updateProduct(data, watchForm.watchImageRemoveList, id)
     }
 }
 
@@ -81,7 +88,6 @@ export const fetchWatch = (id) => {
         dispatch(resetWatchform());
         getProductById(id)
             .then((watch) => {
-                console.log(watch)
                 watch.attributes.forEach((attribute) => {
                     let fieldName = mapWatchAttribute(attribute);
                     if (fieldName) dispatch(setWatchFormField(fieldName, attribute.options[0]));
@@ -136,15 +142,18 @@ export const fetchWatch = (id) => {
                         dispatch(toggleMassWatchFormCheckbox('watchOthers', mapWatchCheckbox(option, watchOthers)));
                     });
                 };
+
+                // Put imported image ID and url in object, so we can show and remove these images if neccesary
+                const importedImages = (watch.images.map((image) => ({
+                    url: image.src,
+                    id: image.id
+                })));
                 
-                const imageIDs = watch.images.map((image) => image.id);
+                // Then add to state
+                dispatch(setImportImages(importedImages));
 
-                // Add remove id's to list, in case the offer gets updated
-                dispatch(setRemoveIds(imageIDs));
-
-                // Collect image urls and dispatch to state
-                const imageURLs = watch.images.map((image) => image.src);
-                dispatch(setImportImages(imageURLs));
+                // Set the ID's to the remove list, since Woocommerce copies images on submit
+                dispatch(setRemoveIds(importedImages.map((image) => image.id)));
             })
         .catch((error) => {
             console.log(error);
@@ -155,6 +164,17 @@ export const fetchWatch = (id) => {
 export const setImportImages = (images) => ({
     type: actionTypes.SET_IMPORT_IMAGES,
     images
+});
+
+export const startRemoveImportImage = (id) => {
+    return (dispatch) => {
+        dispatch(removeImportImage(id));
+        dispatch(setRemoveIds([id]));
+    }
+}
+export const removeImportImage = (id) => ({
+    type: actionTypes.REMOVE_IMPORT_IMAGE,
+    id
 })
 
 export const resetWatchform = () => ({

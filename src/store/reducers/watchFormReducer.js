@@ -61,6 +61,11 @@ const watchFormReducer = (state = defaultState, action) => {
                 ...state,
                 watchImportImages: action.images
             }
+        case actionTypes.REMOVE_IMPORT_IMAGE:
+            return {
+                ...state,
+                watchImportImages: state.watchImportImages.filter((image) => action.id !== image.id)
+            }
         case actionTypes.RESET_WATCHFORM:
             return defaultState;
         default:
