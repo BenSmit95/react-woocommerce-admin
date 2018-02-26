@@ -1,5 +1,6 @@
 .PageHeader {
   background-color: #cdd4d8;
+  border-bottom: 2px solid #33474F;
   box-sizing: border-box;
   color: #33474F;
   padding: 20px;

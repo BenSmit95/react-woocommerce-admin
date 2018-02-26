@@ -15,7 +15,7 @@ class CreateWatch extends Component {
     render() {
         return (
             <div className={classes.CreateWatch}>
-                <PageHeader>Create a new Offer</PageHeader>
+                <PageHeader>Create a new Offer (Watches)</PageHeader>
                 <div className={classes.content}>
                     <WatchForm onSubmit={this.props.onSubmit} />
                 </div>

@@ -10,6 +10,7 @@
 }
 
 .nav {
+  background-color: #FAFAFA;
   width: 100%;
   z-index: 20;
 }
@@ -20,10 +21,9 @@
   }
 
   .nav {
-    max-width: 300px;
-    min-width: 20%;
+    width: 20%;
   }
   .main {
-    width: 100%;
+    width: 80%;
   }
 }

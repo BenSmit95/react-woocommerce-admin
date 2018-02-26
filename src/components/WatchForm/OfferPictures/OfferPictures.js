@@ -82,6 +82,14 @@ class OfferPictures extends Component {
     return (
       <section>
         <SectionHeader>Pictures of your watch</SectionHeader>
+        <Button
+          type="button"
+          // disable if no images, or if the component state is loading.
+          disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
+          onClick={this.onImagesConfirmed}
+        >
+          Confirm Images
+        </Button>
         <Dropzone
           accept="image/*"
           onDrop={this.onDrop}
@@ -90,14 +98,6 @@ class OfferPictures extends Component {
         >
           {this.props.loading ? <Spinner /> : preview}
         </Dropzone>
-        <Button
-          type="button"
-          // disable if no images, or if the component state is loading.
-          disabled={ ((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
-          onClick={this.onImagesConfirmed}
-        >
-          Confirm Images
-        </Button>
       </section>
     )
   }

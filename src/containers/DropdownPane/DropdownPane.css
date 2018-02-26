@@ -16,3 +16,13 @@
   border-top: 1px solid rgba(51, 71, 79, 0.5); 
   padding: 50px 0;
 }
+
+.active {
+  background-color: #33474F;
+  color: #FAFAFA;
+}
+
+.label:hover {
+  background-color: #CDD4D8;
+  color: #34474F;
+}

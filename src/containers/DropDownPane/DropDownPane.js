@@ -3,11 +3,16 @@ import classes from './DropdownPane.css';
 
 const DropdownPane = (props) => {
 
-  let content = (props.visible ? <div className={classes.content}>{props.children}</div> : null)
-
+  let content = null;
+  let classNames = classes.label;
+  if (props.visible) {
+    classNames = [classes.label, classes.active].join(' ');
+    content = <div className={classes.content}>{props.children}</div>
+  }
+  
   return (
-    <div className={classes.DropdownPane}>
-      <div className={classes.label} onClick={props.onClicked}>{props.label}</div>
+    <div className={classes.classNames}>
+      <div className={classNames} onClick={props.onClicked}>{props.label}</div>
         {content}
     </div>
   )

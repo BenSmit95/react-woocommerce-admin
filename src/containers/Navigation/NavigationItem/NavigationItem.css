@@ -20,7 +20,7 @@
   color: #33474F;
 }
 
-.active {
+.active, .active:hover {
   background-color: #33474F;
   color: #FAFAFA;
 }
