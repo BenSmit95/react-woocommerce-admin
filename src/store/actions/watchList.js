@@ -11,6 +11,8 @@ export const fetchWatches = () => {
         name: watch.name,
         price: watch.price,
         id: watch.id,
+        image: watch.images[0].src,
+        ref: watch.attributes.find(attributes => attributes.id === 23) ? watch.attributes.find(attributes => attributes.id === 23).options[0] : ''
       }));
       dispatch(setWatchList(watchList));
     })

@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductListItem from './ProductListItem/ProductListItem';
+import classes from './ProductList.css';
 
 const ProductList = (props) => {
   const products = props.products.map((product) => (
@@ -10,7 +11,7 @@ const ProductList = (props) => {
     />
   ))
   return (
-    <ol>
+    <ol className={classes.ProductList}>
       {products}
     </ol>
   )

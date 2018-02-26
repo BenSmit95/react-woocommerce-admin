@@ -1,3 +1,21 @@
 .ProductListItem {
-  
+  border-bottom: 1px solid #cdd4d8;
+  color: #33474F;
+  padding: 20px;
+}
+
+.ProductListItem:hover {
+  background-color: #CCD4D8;
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+}
+
+.image {
+  height: 100px;
+  object-fit: contain;
+  width: 100px;
 }
