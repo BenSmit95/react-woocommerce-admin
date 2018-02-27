@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import { jewelryTypes, jewelryBrands } from '../../../_secret/jewelryFormData';
+import classes from './JewelryBasicInformation.css';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import TextInput from '../../UI/Inputs/TextInput/TextInput';
@@ -12,23 +13,26 @@ class JewelryBasicInformation extends Component {
     return (
       <section>
         <SectionHeader>Basic Information</SectionHeader>
-        <VariableInput
-          label={'Type'}
-          input={this.props.inputs.jewelryType}
-          options={jewelryTypes}
-          onChange={this.props.onValueChange}
-        />
-        <TextInput 
+
+        <TextInput
           label={'Offer name'}
           input={this.props.inputs.jewelryName}
           onChange={this.props.onValueChange}
         />
-        <VariableInput
-          label={'Brand'}
-          options={jewelryBrands}
-          input={this.props.inputs.jewelryBrand}
-          onChange={this.props.onValueChange}
-        />
+        <div className={classes.container}>
+          <VariableInput
+            label={'Type'}
+            input={this.props.inputs.jewelryType}
+            options={jewelryTypes}
+            onChange={this.props.onValueChange}
+          />
+          <VariableInput
+            label={'Brand'}
+            options={jewelryBrands}
+            input={this.props.inputs.jewelryBrand}
+            onChange={this.props.onValueChange}
+          />
+        </div>
       </section>
     )
   }

@@ -137,6 +137,60 @@ const defaultState = {
     controls: {},
     name: 'jewelryGemstones'
   },
+  jewelryWithBox: {
+    value: false,
+    error: '',
+    controls: {},
+    name: 'jewelryWithBox'
+  },
+  jewelryWithPapers: {
+    value: false,
+    error: '',
+    controls: {},
+    name: 'jewelryWithPapers'
+  },
+  jewelryInternalCode: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryInternalCode'
+  },
+  jewelryInternalComment: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryInternalComment'
+  },
+  jewelryDescription: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryDescription',
+  },
+  jewelryDomesticEstimate: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryDomesticEstimate'
+  },
+  jewelryContinentalEstimate: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryContinentalEstimate'
+  },
+  jewelryWorldwideEstimate: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryWorldwideEstimate'
+  },
+  jewelryAvailability: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'jewelryAvailability'
+  }
 }
 
 export default defaultState;

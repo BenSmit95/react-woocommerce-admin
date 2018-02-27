@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.container div {
+  flex: 0 0 48%;
+}
+
+@media (min-width: 1000px) {
+  .container div {
+    flex: 0 0 30%;
+  }
+}

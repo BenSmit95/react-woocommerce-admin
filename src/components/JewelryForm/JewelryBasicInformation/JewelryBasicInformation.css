@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.container div {
+  flex: 0 0 48%;
+}

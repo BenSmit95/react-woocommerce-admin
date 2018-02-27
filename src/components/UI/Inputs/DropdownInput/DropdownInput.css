@@ -2,10 +2,30 @@
   display: flex;
   flex-flow: column;
   margin: 5px 0;
+
+  
 }
 
 .error {
   color: #F00;
   font-family: Trenda-Bold;
   margin-top: 5px;
+}
+
+.DropdownInput select {
+  background-color: #EDEDED;
+  border: none;
+  border-radius: 10px;
+  color: #33474F;
+  font-family: Trenda-regular;
+  font-size: 18px;
+  padding: 7px;
+  padding-left: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.DropdownInput label {
+  color: #33474F;
+  font-family: Trenda-Bold;
 }

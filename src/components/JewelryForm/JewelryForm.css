@@ -1,4 +1,10 @@
 .JewelryForm {
-  margin: auto;
+  margin: 50px auto 20px auto;
   width: 85%;
+}
+
+.JewelryForm hr {
+  margin: 40px 0;
+  border: none;
+  border-bottom: 1px solid #CDD4D8;
 }
