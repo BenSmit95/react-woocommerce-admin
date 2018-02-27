@@ -14,3 +14,7 @@ export {
 export {
   fetchWatches
 } from './watchList';
+
+export {
+  setJewelryFormField,
+} from './jewelryForm';

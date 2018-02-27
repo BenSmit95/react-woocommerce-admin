@@ -11,7 +11,7 @@ const ProductListItem = (props) => {
         className={classes.link}
         to={`${linkUrl}/${props.product.id}`}
       >
-        <img src={props.product.image} alt="preview image" className={classes.image} />
+        <img src={props.product.image} alt="preview" className={classes.image} />
         {props.product.name} | {props.product.price} | {props.product.ref}
       </Link>
     </li>
