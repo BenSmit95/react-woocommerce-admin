@@ -9,3 +9,21 @@
   font-family: Trenda-Bold;
   margin-top: 5px;
 }
+
+.NumberInput input {
+  background-color: #EDEDED;
+  border: none;
+  border-radius: 10px;
+  color: #33474F;
+  font-family: Trenda-regular;
+  font-size: 18px;
+  padding: 7px;
+  padding-left: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.NumberInput label {
+  color: #33474F;
+  font-family: Trenda-Bold;
+}

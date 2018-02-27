@@ -85,8 +85,23 @@ const watchFormReducer = (state = defaultState, action) => {
                     error: action.error
                 }
             }
+        case actionTypes.WATCHFORM_START_LOADING:
+            return {
+                ...state,
+                loading: true
+            }
+        case actionTypes.WATCHFORM_STOP_LOADING:
+            return {
+                ...state,
+                loading: false
+            }
         case actionTypes.RESET_WATCHFORM:
             return defaultState;
+        case actionTypes.WATCHFORM_SUBMIT_SUCCESS:
+            return {
+                ...state,
+                submitted: true
+            }
         default:
             return state;
     }

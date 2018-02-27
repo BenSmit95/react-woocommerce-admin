@@ -330,5 +330,6 @@ export const defaultState = {
   ],
   imageLoading: false,
   loading: false,
-  valid: false
+  valid: false,
+  submitted: false
 }

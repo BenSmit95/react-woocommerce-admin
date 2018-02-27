@@ -1,4 +1,4 @@
-.TextInput {
+.VariableInput {
   display: flex;
   flex-flow: column;
   margin: 5px 0;
@@ -10,7 +10,7 @@
   margin-top: 5px;
 }
 
-.TextInput input {
+.VariableInput input, .VariableInput select {
   background-color: #EDEDED;
   border: none;
   border-radius: 10px;
@@ -23,7 +23,25 @@
   box-sizing: border-box;
 }
 
-.TextInput label {
+.VariableInput label {
   color: #33474F;
   font-family: Trenda-Bold;
+}
+
+.VariableInput button {
+  background-color: #CDD4D8;
+  border: none;
+  color: #33474F;
+  font-family: Trenda-Regular;
+  font-size: 18px;
+  padding: 7px;
+  outline: none;
+}
+
+.VariableInput button:hover {
+  background-color: #EDEDED;
+}
+
+.container {
+  width: 100%;
 }

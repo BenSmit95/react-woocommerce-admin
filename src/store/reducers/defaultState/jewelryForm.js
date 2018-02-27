@@ -21,6 +21,14 @@ const defaultState = {
     controls: {},
     name: 'jewelryBrand'
   },
+  jewelryPrice: {
+    value: '',
+    error: '',
+    controls: {
+      required: true
+    },
+    name: 'jewelryPrice'
+  },
   jewelryPreciousMetal: {
     value: '',
     error: '',

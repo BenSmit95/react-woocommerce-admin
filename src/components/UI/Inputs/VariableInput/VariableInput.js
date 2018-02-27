@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classes from './VariableInput.css';
 
 class VariableInput extends Component {
   state = {
@@ -29,9 +30,9 @@ class VariableInput extends Component {
       );
 
     return (
-      <div>
+      <div className={classes.VariableInput}>
         <label>{this.props.label}{this.props.input.controls.required ? ' *' : null}</label>
-        <div>
+        <div className={classes.container}>
         {input}
         <button
           type="button"

@@ -66,12 +66,21 @@ export const confirmImages = (files) => {
     }
 }
 
+export const watchFormStartLoading = () => ({
+    type: actionTypes.WATCHFORM_START_LOADING
+});
+
+export const watchFormStopLoading = () => ({
+    type: actionTypes.WATCHFORM_STOP_LOADING
+});
+
 export const postWatchFormOffer = () => {
     return (dispatch, getState) => {
+        dispatch(watchFormStartLoading())
         const watchForm = { ...getState().watchForm };
         const data = transformData(watchForm);
         console.log(watchForm.watchImageRemoveList);
-        postProduct(data, watchForm.watchImageRemoveList);
+        postProduct(data, watchForm.watchImageRemoveList, () => dispatch(watchFormSubmitted()));
     }
 }
 
@@ -82,6 +91,10 @@ export const updateWatchFormOffer = (id) => {
         updateProduct(data, watchForm.watchImageRemoveList, id)
     }
 }
+
+export const watchFormSubmitted = () => ({
+    type: actionTypes.WATCHFORM_SUBMIT_SUCCESS
+});
 
 export const fetchWatch = (id) => {
     return (dispatch) => {
