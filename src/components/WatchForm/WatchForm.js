@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import classes from './WatchForm.css';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 import OfferInformation from './OfferInformation/OfferInformation';
 import OfferOptions from './OfferOptions/OfferOptions';
@@ -16,6 +18,11 @@ class WatchForm extends Component {
         this.props.onSubmit();
     }
 
+    handleCheckForm = (e) => {
+        e.preventDefault();
+        this.props.onCheckForm();
+    }
+
     render() {
         return (
             <form className={classes.WatchForm} onSubmit={this.handleSubmit}>
@@ -30,16 +37,31 @@ class WatchForm extends Component {
                 <OfferStatus />
                 <hr />
                 <OfferPictures />
-                <Button
-                    onClick={this.handleSubmit}
-                >
-                    Save Offer
-                </Button>
+                <div className={classes.buttons}>
+                    <Button
+                        onClick={this.handleCheckForm}
+                        disabled={this.props.valid}
+                    >
+                        Validate
+                    </Button>
+                    <Button
+                        onClick={this.handleSubmit}
+                        disabled={!this.props.valid}
+                    >
+                        Save Offer
+                    </Button>
+                </div>
             </form>
         )
     }
 }
 
+const mapStateToProps = (state) => ({
+    valid: state.watchForm.valid
+});
 
+const mapDispatchToProps = (dispatch) => ({
+    onCheckForm: () => dispatch(actions.checkWatchform())
+});
 
-export default WatchForm;
+export default connect(mapStateToProps, mapDispatchToProps)(WatchForm);

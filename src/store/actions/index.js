@@ -8,6 +8,7 @@ export {
   confirmImages,
   fetchWatch,
   startRemoveImportImage,
+  checkWatchform
 } from './watchForm';
 
 export {

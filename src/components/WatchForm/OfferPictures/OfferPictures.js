@@ -80,7 +80,7 @@ class OfferPictures extends Component {
       )
 
     return (
-      <section>
+      <section className={classes.OfferPictures}>
         <SectionHeader>Pictures of your watch</SectionHeader>
         <Button
           type="button"

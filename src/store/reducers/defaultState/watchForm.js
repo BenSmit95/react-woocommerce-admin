@@ -72,6 +72,7 @@ export const defaultState = {
     error: '',
     controls: {
       whiteOption: true,
+      required: true
     },
     name: 'watchCondition'
   },
@@ -328,5 +329,6 @@ export const defaultState = {
 
   ],
   imageLoading: false,
-  loading: false
+  loading: false,
+  valid: false
 }

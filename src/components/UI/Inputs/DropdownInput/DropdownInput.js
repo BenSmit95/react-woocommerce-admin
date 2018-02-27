@@ -20,6 +20,7 @@ const DropdownInput = (props) => {
             >
                 {options}
             </select>
+            {props.input.error ? <p className={classes.error}>{props.input.error}</p> : null}
         </div>
     )
 }

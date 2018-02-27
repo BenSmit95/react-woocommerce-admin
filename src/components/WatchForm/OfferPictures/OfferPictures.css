@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.OfferPictures > button {
+  margin-bottom: 15px;
+}
+
 .image img {
   height: 100%;
   width: 100%;

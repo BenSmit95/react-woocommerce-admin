@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import transformData from '../../utils/data/transformData';
+import transformData from '../../utils/data/transformWatchData';
 import { mapWatchAttribute, mapWatchCheckbox } from '../../utils/data/mapWatch';
 import { stripHTML } from '../../utils/data/utility';
 import { postProduct, postImages, getProductById, updateProduct } from '../../_secret/auth';
@@ -172,6 +172,7 @@ export const startRemoveImportImage = (id) => {
         dispatch(setRemoveIds([id]));
     }
 }
+
 export const removeImportImage = (id) => ({
     type: actionTypes.REMOVE_IMPORT_IMAGE,
     id
@@ -179,4 +180,36 @@ export const removeImportImage = (id) => ({
 
 export const resetWatchform = () => ({
     type: actionTypes.RESET_WATCHFORM
+});
+
+export const checkWatchform = () => {
+    return (dispatch, getState) => {
+        const watchForm = getState().watchForm;
+
+        const errors = [];
+        for(let key in watchForm) {
+            // If the watchform has REQUIRED set to true and has an empty value, add them to the error array;
+            if(watchForm[key].controls && watchForm[key].controls.required && !watchForm[key].value.trim()) {
+                errors.push({
+                    fieldName: key,
+                    message: 'This field is required'
+                });
+            };
+        }
+        if (errors.length > 0) {
+            errors.forEach((error) => dispatch(setWatchformError(error.fieldName, error.message)));
+        } else {
+            dispatch(setWatchformValid());
+        }
+    }
+}
+
+export const setWatchformError = (fieldName, error) => ({
+    type: actionTypes.SET_WATCHFORM_ERROR,
+    fieldName,
+    error
+});
+
+export const setWatchformValid = () => ({
+    type: actionTypes.SET_WATCHFORM_VALID
 });

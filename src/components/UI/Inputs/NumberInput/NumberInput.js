@@ -11,6 +11,7 @@ const NumberInput = (props) => (
       onChange={(event) => props.onChange(props.input.name, event.target.value)}
       value={props.input.value}
     />
+    {props.input.error ? <p className={classes.error}>{props.input.error}</p> : null}
   </div>
 );
 

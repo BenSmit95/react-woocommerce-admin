@@ -11,6 +11,7 @@ const TextAreaInput = (props) => (
       value={props.input.value}
       className={classes.TextInput}
     />
+    {props.input.error ? <p className={classes.error}>{props.input.error}</p> : null}
   </div>
 )
 

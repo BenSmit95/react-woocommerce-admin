@@ -1,6 +1,7 @@
 .TextArea {
   display: flex;
   flex-flow: column nowrap;
+  margin: 5px 0;
 }
 
 .TextArea textarea {
@@ -11,4 +12,10 @@
 
 .TextArea label {
   padding-bottom: 10px;
+}
+
+.error {
+  color: #F00;
+  font-family: Trenda-Bold;
+  margin-top: 5px;
 }

@@ -8,7 +8,9 @@ const watchFormReducer = (state = defaultState, action) => {
                 ...state,
                 [action.fieldName]: {
                     ...state[action.fieldName],
-                    value: action.value
+                    value: action.value,
+                    valid: false,
+                    error: ''
                 }
             }
         case actionTypes.TOGGLE_WATCHFORM_CHECKBOX:
@@ -16,7 +18,9 @@ const watchFormReducer = (state = defaultState, action) => {
                 ...state,
                 [action.fieldName]: {
                     ...state[action.fieldName],
-                    value: !state[action.fieldName].value
+                    value: !state[action.fieldName].value,
+                    valid: false,
+                    error: ''
                 }
             }
         case actionTypes.TOGGLE_MASS_WATCHFORM_CHECKBOX:
@@ -27,6 +31,8 @@ const watchFormReducer = (state = defaultState, action) => {
                     [action.name]: {
                         ...state[action.fieldName][action.name],
                         value: (state[action.fieldName][action.name].value ? false : true),
+                        valid: false,
+                        error: ''
                     }
                 }
             }
@@ -65,6 +71,19 @@ const watchFormReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 watchImportImages: state.watchImportImages.filter((image) => action.id !== image.id)
+            }
+        case actionTypes.SET_WATCHFORM_VALID:
+            return {
+                ...state,
+                valid: true
+            }
+        case actionTypes.SET_WATCHFORM_ERROR:
+            return {
+                ...state,
+                [action.fieldName]: {
+                    ...state[action.fieldName],
+                    error: action.error
+                }
             }
         case actionTypes.RESET_WATCHFORM:
             return defaultState;

@@ -28,3 +28,13 @@
   color: #33474F;
   font-family: Trenda-Bold;
 }
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 25px 0;
+}
+
+.buttons button {
+  margin-left: 25px;
+}
