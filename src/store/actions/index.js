@@ -16,5 +16,8 @@ export {
 } from './watchList';
 
 export {
+  resetJewelryform,
   setJewelryFormField,
+  toggleJewelryFormCheckbox,
+  confirmJewelryImages,
 } from './jewelryForm';

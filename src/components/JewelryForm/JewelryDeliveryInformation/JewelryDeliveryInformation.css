@@ -1,0 +1,32 @@
+.deliveryContainer { 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.deliveryContainer div {
+  width: 48%;
+}
+
+.scope {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 7px;
+}
+
+.scope div {
+  margin-right: 15px;
+}
+
+.label {
+  color: #33474F;
+  font-family: Trenda-Bold;
+  padding-top: 15px;
+}
+
+@media (min-width: 1000px) {
+  .deliveryContainer div {
+    width: 30%;
+  }
+}

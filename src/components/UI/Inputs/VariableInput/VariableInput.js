@@ -17,8 +17,8 @@ class VariableInput extends Component {
         onChange={this.onChange}
         value={this.props.input.value}
       >
-        {[<option></option>].concat(this.props.options.map((option, index) => (
-          <option>{option}</option>
+        {[<option key={`${this.props.input.name}${-1}`}></option>].concat(this.props.options.map((option, index) => (
+          <option key={`${this.props.input.name}${index}`}>{option}</option>
         )))}
       </select>
     ) : (

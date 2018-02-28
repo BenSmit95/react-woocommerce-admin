@@ -188,9 +188,27 @@ const defaultState = {
   jewelryAvailability: {
     value: '',
     error: '',
-    controls: {},
+    controls: {
+      required: true
+    },
     name: 'jewelryAvailability'
-  }
+  },
+  jewelryImages: {
+    value: [],
+    error: '',
+    controls: {},
+    name: 'jewelryImages'
+  },
+  jewelryImageRemoveList: [
+
+  ],
+  jewelryImportImages: [
+
+  ],
+  imageLoading: false,
+  loading: false,
+  valid: false,
+  submitted: false
 }
 
 export default defaultState;

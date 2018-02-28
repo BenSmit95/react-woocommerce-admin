@@ -42,7 +42,7 @@ const mapStateToProps = (state) => ({
   inputs: {
     jewelryType: state.jewelryForm.jewelryType,
     jewelryName: state.jewelryForm.jewelryName,
-    jewelryBrand: state.jewelryForm.jewelryBrand,
+    jewelryBrand: state.jewelryForm.jewelryBrand
   }
 });
 

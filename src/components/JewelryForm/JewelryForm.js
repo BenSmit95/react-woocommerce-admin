@@ -7,6 +7,9 @@ import JewelryMeasurements from './JewelryMeasurements/JewelryMeasurements';
 import JewelryDetails from './JewelryDetails/JewelryDetails';
 import JewelryDeliveryInformation from './JewelryDeliveryInformation/JewelryDeliveryInformation';
 import Button from '../UI/Button/Button';
+import JewelryDescription from './JewelryDescription/JewelryDescription';
+import JewelryInternalInformation from './JewelryInternalInformation/JewelryInternalInformation';
+import JewelryPictures from './JewelryPictures/JewelryPictures';
 
 class JewelryForm extends Component {
 
@@ -19,6 +22,8 @@ class JewelryForm extends Component {
       <form className={classes.JewelryForm}>
         <JewelryBasicInformation />
         <hr />
+        <JewelryDescription />
+        <hr />
         <JewelryPrice />
         <hr />
         <JewelryDeliveryInformation />
@@ -26,6 +31,10 @@ class JewelryForm extends Component {
         <JewelryDetails />
         <hr />
         <JewelryMeasurements />
+        <hr />
+        <JewelryInternalInformation />
+        <hr />
+        <JewelryPictures />
         <hr />
         <Button
           onClick={this.handleSubmit}

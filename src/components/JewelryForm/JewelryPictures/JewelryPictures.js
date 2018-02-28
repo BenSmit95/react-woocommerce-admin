@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
-import classes from './OfferPictures.css';
+import classes from './JewelryPictures.css';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
-import Dropzone from 'react-dropzone';
 import Button from '../../UI/Button/Button';
+import Dropzone from 'react-dropzone';
 import Spinner from '../../UI/Spinner/Spinner';
 
-class OfferPictures extends Component {
-
+class JewelryPictures extends Component {
   state = {
     files: [],
     loading: false
@@ -17,28 +16,24 @@ class OfferPictures extends Component {
 
   handleRemoveImage = (e, key) => {
     e.stopPropagation();
-    this.setState({ files: this.state.files.filter((file, index) => index !== key )});
-  }
+    this.setState({ files: this.state.files.filter((file, index) => index !== key) });
+  };
 
   handleRemoveImportImage = (e, id) => {
     e.stopPropagation();
     this.props.onRemoveImportImage(id);
-  }
+  };
 
-  onDrop = (acceptedFiles) => {
-    this.setState({ files: this.state.files.concat(acceptedFiles) })
-  }
+  onDrop = (acceptedFiles) => this.setState({ files: this.state.files.concat(acceptedFiles) });
 
-  onImagesConfirmed = () => {
-    this.props.onImagesConfirmed(this.state.files);
-  }
+  onImagesConfirmed = () => this.props.onImagesConfirmed(this.state.files);
 
   render() {
-    const preview = (this.state.files.length > 0 || this.props.importImages.length > 0) ? (
+    const preview = (this.state.files.length > 0 || this.props.importImages.length) ? (
       <div className={classes.preview}>
         {this.props.importImages.map((image, key) => (
           <div
-            key={`importImg${key}`}
+            key={`importJewelry${key}`}
             className={classes.image}
           >
             <img
@@ -57,7 +52,7 @@ class OfferPictures extends Component {
         ))}
         {this.state.files.map((file, key) => (
           <div
-            key={`wimg${key}`}
+            key={`jimg${key}`}
             className={classes.image}
           >
             <img
@@ -78,15 +73,13 @@ class OfferPictures extends Component {
     ) : (
         <div>Drag images here</div>
       )
-
     return (
-      <section className={classes.OfferPictures}>
-        <SectionHeader>Pictures of your watch</SectionHeader>
+      <section className={classes.JewelryPictures}>
+        <SectionHeader>Offer Pictures</SectionHeader>
         <Button
-          type="button"
-          // disable if no images, or if the component state is loading.
-          disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
           onClick={this.onImagesConfirmed}
+          type="button"
+          disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
         >
           Confirm Images
         </Button>
@@ -96,7 +89,7 @@ class OfferPictures extends Component {
           disablePreview={false}
           className={classes.dropzone}
         >
-          {this.props.loading ? <Spinner /> : preview}
+          {this.props.loading ? <Spinner /> : preview }
         </Dropzone>
       </section>
     )
@@ -104,13 +97,13 @@ class OfferPictures extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  loading: state.watchForm.imageLoading,
-  importImages: state.watchForm.watchImportImages
+  loading: state.jewelryForm.imageLoading,
+  importImages: state.jewelryForm.jewelryImportImages
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onImagesConfirmed: (files) => dispatch(actions.confirmImages(files)),
+  onImagesConfirmed: (files) => dispatch(actions.confirmJewelryImages(files)),
   onRemoveImportImage: (id) => dispatch(actions.startRemoveImportImage(id))
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(OfferPictures);
+export default connect(mapStateToProps, mapDispatchToProps)(JewelryPictures);
