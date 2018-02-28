@@ -41,6 +41,7 @@ class VariableInput extends Component {
           switch
         </button>
         </div>
+        {this.props.input.error ? <p className={classes.error}>{this.props.input.error}</p> : null}
       </div>
     )
   }

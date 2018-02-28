@@ -9,7 +9,8 @@ const jewelryFormReducer = (state = defaultState, action) => {
         [action.fieldName]: {
           ...state[action.fieldName],
           value: action.value
-        }
+        },
+        valid: true
       }
     case actionTypes.TOGGLE_JEWELRYFORM_CHECKBOX:
       return {
@@ -17,7 +18,8 @@ const jewelryFormReducer = (state = defaultState, action) => {
         [action.fieldName]: {
           ...state[action.fieldName],
           value: !state[action.fieldName].value
-        }
+        },
+        valid: true
       }
     case actionTypes.SET_JEWELRY_IMAGES:
       return {
@@ -54,6 +56,19 @@ const jewelryFormReducer = (state = defaultState, action) => {
       return {
         ...state,
         jewelryImportImages: state.jewelryImportImages.filter((image) => action.id !== image.id)
+      }
+    case actionTypes.SET_JEWELRYFORM_ERROR:
+      return {
+        ...state,
+        [action.fieldName]: {
+          ...state[action.fieldName],
+          error: action.error
+        }
+      }
+    case actionTypes.SET_JEWELRYFORM_VALID:
+      return {
+        ...state,
+        valid: true
       }
     case actionTypes.RESET_JEWELRYFORM:
       return defaultState;

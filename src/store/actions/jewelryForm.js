@@ -69,3 +69,35 @@ export const removeJewelryImportImage = (id) => ({
   type: actionTypes.REMOVE_JEWELRY_IMPORT_IMAGE,
   id
 });
+
+export const checkJewelryForm = () => {
+  return (dispatch, getState) => {
+    const jewelryForm = getState().jewelryForm;
+
+    const errors =[];
+
+    for(let key in jewelryForm) {
+      if(jewelryForm[key].controls && jewelryForm[key].controls.required && !jewelryForm[key].value.trim()) {
+        errors.push({
+          fieldName: key,
+          message: 'This field is required'
+        });
+      }
+    }
+    if(errors.length > 0) {
+      errors.forEach((error => dispatch(setJewelryFormError(error.fieldName, error.message))))
+    } else {
+      dispatch(setJewelryFormValid());
+    }
+  }
+}
+
+export const setJewelryFormValid = () => ({
+  type: actionTypes.SET_JEWELRYFORM_VALID
+});
+
+export const setJewelryFormError = (fieldName, error) => ({
+  type: actionTypes.SET_JEWELRYFORM_ERROR,
+  fieldName,
+  error
+});

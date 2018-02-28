@@ -20,4 +20,5 @@ export {
   setJewelryFormField,
   toggleJewelryFormCheckbox,
   confirmJewelryImages,
+  checkJewelryForm
 } from './jewelryForm';
