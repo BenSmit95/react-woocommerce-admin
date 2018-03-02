@@ -31,11 +31,12 @@ const transformWatchData = (data) => {
   const images = importImages.concat(data.watchImages.value);
 
   const output = {
-    name: `${data.watchBrand.value} ${data.watchModel.value}`,
+    name: `${data.watchOfferName.value}`,
     type: 'simple',
     regular_price: `${Number(data.watchPrice.value).toFixed(2)}`,
     description: data.watchDescription.value,
     short_description: data.watchInternalCode.value,
+    sold_individually: !data.watchSeveralItemsAvailable.value,
     categories: [
       {
         id: watchCategories.WATCHES
@@ -156,6 +157,12 @@ const transformWatchData = (data) => {
       }, {
         id: watchAttributes.INTERNAL_COMMENT,
         options: [data.watchInternalComment.value]
+      }, {
+        id: watchAttributes.INTERNAL_CODE,
+        options: [data.watchInternalCode.value]
+      }, {
+        id: watchAttributes.YOUTUBE_LINK,
+        options: [data.watchYoutubeLink.value]
       }
     ],
     images: images.map((image, index) => ({

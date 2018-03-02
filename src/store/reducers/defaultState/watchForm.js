@@ -4,6 +4,14 @@ import {
 } from '../../../_secret/watchFormData';
 
 export const defaultState = {
+  watchOfferName: {
+    value: '',
+    error: '',
+    controls: {
+      required: true
+    },
+    name: 'watchOfferName'
+  },
   watchType: {
     value: 'Watch',
     error: '',
@@ -321,6 +329,12 @@ export const defaultState = {
     error: '',
     controls: {},
     name: 'watchInternalComment'
+  },
+  watchYoutubeLink: {
+    value: '',
+    error: '',
+    controls: {},
+    name: 'watchYoutubeLink'
   },
   watchImageRemoveList: [
     

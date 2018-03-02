@@ -32,6 +32,8 @@ export const mapWatchAttribute = (attribute) => {
     case 33: return ('watchPowerReserve');
     case 34: return ('watchJewelCount');
     case 37: return ('watchInternalComment');
+    case 62: return ('watchYoutubeLink');
+    case 63: return ('watchInternalCode');
     default: return (null);
   }
 };

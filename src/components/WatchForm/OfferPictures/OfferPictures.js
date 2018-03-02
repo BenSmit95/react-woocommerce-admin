@@ -7,6 +7,7 @@ import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import Dropzone from 'react-dropzone';
 import Button from '../../UI/Button/Button';
 import Spinner from '../../UI/Spinner/Spinner';
+import TextInput from '../../UI/Inputs/TextInput/TextInput';
 
 class OfferPictures extends Component {
 
@@ -82,6 +83,11 @@ class OfferPictures extends Component {
     return (
       <section className={classes.OfferPictures}>
         <SectionHeader>Pictures of your watch</SectionHeader>
+        <TextInput 
+          label={'Youtube URL'}
+          onChange={this.props.onValueChange}
+          input={this.props.youtubeLink}
+        />
         <Button
           type="button"
           // disable if no images, or if the component state is loading.
@@ -105,12 +111,14 @@ class OfferPictures extends Component {
 
 const mapStateToProps = (state) => ({
   loading: state.watchForm.imageLoading,
-  importImages: state.watchForm.watchImportImages
+  importImages: state.watchForm.watchImportImages,
+  youtubeLink: state.watchForm.watchYoutubeLink
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onImagesConfirmed: (files) => dispatch(actions.confirmImages(files)),
-  onRemoveImportImage: (id) => dispatch(actions.startRemoveImportImage(id))
+  onRemoveImportImage: (id) => dispatch(actions.startRemoveImportImage(id)),
+  onValueChange: (fieldName, value) => dispatch(actions.setWatchFormField(fieldName, value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OfferPictures);

@@ -42,6 +42,11 @@ class OfferInformation extends Component {
             <section className={classes.OfferInformation}>
                 <div className={classes.row1}>
                     <SectionHeader>Offer Information</SectionHeader>
+                    <TextInput 
+                        label={'Offer name'}
+                        onChange={this.props.onValueChange}
+                        input={this.props.inputs.watchOfferName}
+                    />
                     <DropdownInput
                         label={'Type of watch'}
                         options={watchTypes}
@@ -134,6 +139,7 @@ class OfferInformation extends Component {
 
 const mapStateToProps = (state) => ({
     inputs: {
+        watchOfferName: state.watchForm.watchOfferName,
         watchType: state.watchForm.watchType,
         watchBrand: state.watchForm.watchBrand,
         watchModel: state.watchForm.watchModel,

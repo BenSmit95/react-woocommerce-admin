@@ -106,6 +106,12 @@ export const fetchWatch = (id) => {
                     if (fieldName) dispatch(setWatchFormField(fieldName, attribute.options[0]));
                 });
                 dispatch(setWatchFormField('watchPrice', watch.price));
+                dispatch(setWatchFormField('watchOfferName', stripHTML(watch.name)));
+                
+                // Sold individually
+                if (!watch.sold_individually) {
+                    dispatch(toggleWatchFormCheckbox('watchSeveralItemsAvailable'));
+                }
 
                 if (watch.description) {
                     dispatch(setWatchFormField('watchDescription', stripHTML(watch.description)))
