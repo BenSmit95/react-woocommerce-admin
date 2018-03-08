@@ -2,6 +2,13 @@
   padding-top: 50px;
 }
 
+.OfferInformation h4 {
+  color: #33474F;
+  font-family: Trenda-Bold;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
 .OfferInformation div {
   display: flex;
 }
@@ -79,6 +86,21 @@
 .checkboxes div {
   margin-right: 20px;
   width: 20%;
+}
+
+.checkboxRow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.checkboxRow > div label {
+  font-family: Trenda-Bold;
+}
+
+.checkboxRow > div {
+  flex: 0 0 250px;
+  margin: 8px 15px;
 }
 
 @media (min-width: 1000px) {

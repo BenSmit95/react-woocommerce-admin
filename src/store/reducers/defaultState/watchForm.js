@@ -20,6 +20,48 @@ export const defaultState = {
     },
     name: 'watchType'
   },
+  watchCategoryAutomatic: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryAutomatic'
+  },
+  watchCategoryPilot: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryPilot'
+  },
+  watchCategoryMechanic: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryMechanic'
+  },
+  watchCategoryVintage: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryVintage'
+  },
+  watchCategoryGolden: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryGolden'
+  },
+  watchCategoryMilitary: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryMilitary'
+  },
+  watchCategoryDiving: {
+    value: false,
+    error: {},
+    controls: {},
+    name: 'watchCategoryDiving'
+  },
   watchBrand: {
     value: '',
     error: '',

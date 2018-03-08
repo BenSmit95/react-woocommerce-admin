@@ -38,6 +38,19 @@ export const mapWatchAttribute = (attribute) => {
   }
 };
 
+export const mapWatchCategory = (category) => {
+  switch(category) {
+    case 50: return 'watchCategoryAutomatic';
+    case 51: return 'watchCategoryPilot';
+    case 54: return 'watchCategoryVintage';
+    case 56: return 'watchCategoryGolden';
+    case 57: return 'watchCategoryDiving';
+    case 52: return 'watchCategoryMechanic';
+    case 390: return 'watchCategoryMilitary';
+    default: return false;
+  }
+}
+
 export const mapWatchCheckbox = (option, list) => {
   const item = list.find((element) => element.label === option).name;
   return item;

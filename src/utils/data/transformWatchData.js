@@ -6,11 +6,11 @@ const transformWatchData = (data) => {
 
   const watchFunctions = [];
   for(let i in data.watchFunctions) {
-    if(data.watchFunctions[i].value) watchFunctions.push(data.watchFunctions[i].label)
+    if(data.watchFunctions[i].value) watchFunctions.push(data.watchFunctions[i].label);
   }
   const watchOthers = [];
   for (let i in data.watchOthers) {
-    if (data.watchOthers[i].value) watchOthers.push(data.watchOthers[i].label)
+    if (data.watchOthers[i].value) watchOthers.push(data.watchOthers[i].label);
   }
 
   let watchCaseDiameter = '';
@@ -30,18 +30,34 @@ const transformWatchData = (data) => {
   const importImages = data.watchImportImages.map(image => image.url);
   const images = importImages.concat(data.watchImages.value);
 
+
+
+  // Watch categories
+  const watchCategoriesArray = [];
+  watchCategoriesArray.push({
+    id: watchCategories.WATCHES
+  });
+  if(data.watchType.value === 'Pocket Watch') watchCategoriesArray.push({ id: watchCategories.POCKET_WATCHES });
+  if(data.watchCategoryAutomatic.value) watchCategoriesArray.push({ id: watchCategories.AUTOMATIC_WATCHES });
+  if(data.watchCategoryPilot.value) watchCategoriesArray.push({ id: watchCategories.PILOT_WATCHES });
+  if(data.watchCategoryDiving.value) watchCategoriesArray.push({ id: watchCategories.DIVING_WATCHES });
+  if(data.watchCategoryVintage.value) watchCategoriesArray.push({ id: watchCategories.VINTAGE_WATCHES });
+  if(data.watchCategoryMechanic.value) watchCategoriesArray.push({ id: watchCategories.MECHANIC_WATCHES });
+  if(data.watchCategoryGolden.value) watchCategoriesArray.push({ id: watchCategories.GOLDEN_WATCHES });
+  if(data.watchCategoryMilitary.value) watchCategoriesArray.push({ id: watchCategories.MILTARY_WATCHES });
+  if(data.watchOthers.chronometer.value) watchCategoriesArray.push({ id: watchCategories.CHRONOMETERS });
+  if(data.watchFunctions.chronograph.value) watchCategoriesArray.push({ id: watchCategories.CHRONOGRAPHS });
+
+  console.log(watchCategories);
+
   const output = {
     name: `${data.watchOfferName.value}`,
     type: 'simple',
     regular_price: `${Number(data.watchPrice.value).toFixed(2)}`,
     description: data.watchDescription.value,
     short_description: data.watchInternalCode.value,
-    sold_individually: !data.watchSeveralItemsAvailable.value,
-    categories: [
-      {
-        id: watchCategories.WATCHES
-      }
-    ],
+    sold_individually: true/*!data.watchSeveralItemsAvailable.value*/,
+    categories: watchCategoriesArray,
     attributes: [
       {
         id: watchAttributes.BRAND,

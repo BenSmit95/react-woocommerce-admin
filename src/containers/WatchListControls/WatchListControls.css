@@ -1,0 +1,19 @@
+.WatchListControls {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: auto;
+  padding: 20px 0;
+  width: 80%;
+}
+
+.inputContainer {
+  padding-bottom: 20px;
+  width: 500px;
+}
+
+.inputContainer > * {
+  width: 100%;
+  margin: 10px 0;
+}

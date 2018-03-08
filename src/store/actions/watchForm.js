@@ -1,10 +1,11 @@
 import * as actionTypes from './actionTypes';
 import transformData from '../../utils/data/transformWatchData';
-import { mapWatchAttribute, mapWatchCheckbox } from '../../utils/data/mapWatch';
+import { mapWatchAttribute, mapWatchCheckbox, mapWatchCategory } from '../../utils/data/mapWatch';
 import { stripHTML } from '../../utils/data/utility';
 import { postProduct, postImages, getProductById, updateProduct } from '../../_secret/auth';
 import * as watchAttributes from '../../_secret/watchAttributes';
 import { watchFunctions, watchOthers } from '../../_secret/watchFormData';
+import * as watchCategories from '../../_secret/watchCategories';
 
 export const setWatchFormField = (fieldName, value) => ({
     type: actionTypes.SET_WATCHFORM_FIELD,
@@ -108,6 +109,17 @@ export const fetchWatch = (id) => {
                 dispatch(setWatchFormField('watchPrice', watch.price));
                 dispatch(setWatchFormField('watchOfferName', stripHTML(watch.name)));
                 
+                // Categories 
+                watch.categories.forEach((category) => {
+                    let categoryName = mapWatchCategory(category.id);
+                    console.log(categoryName);
+                    if(categoryName) dispatch(toggleWatchFormCheckbox(categoryName));
+                });
+
+                if(watch.categories.find((category) => category.id === watchCategories.POCKET_WATCHES)) {
+                    dispatch(setWatchFormField('watchType', 'Pocket Watch'));
+                }
+
                 // Sold individually
                 if (!watch.sold_individually) {
                     dispatch(toggleWatchFormCheckbox('watchSeveralItemsAvailable'));
@@ -116,7 +128,7 @@ export const fetchWatch = (id) => {
                 if (watch.description) {
                     dispatch(setWatchFormField('watchDescription', stripHTML(watch.description)))
                 }
-
+                
                 if (watch.short_description)  {
                     dispatch(setWatchFormField('watchInternalCode', stripHTML(watch.short_description)))
                 }

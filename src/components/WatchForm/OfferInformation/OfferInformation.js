@@ -10,34 +10,10 @@ import TextInput from '../../UI/Inputs/TextInput/TextInput';
 import CheckboxInput from '../../UI/Inputs/CheckboxInput/CheckboxInput';
 import NumberInput from '../../UI/Inputs/NumberInput/NumberInput';
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import VariableInput from '../../UI/Inputs/VariableInput/VariableInput';
 
 class OfferInformation extends Component {
-    state = {
-        brandNotListed: false
-    }
-
     render() {
-
-        let brandInput = (
-            <DropdownInput
-                label={'Brand'}
-                options={watchBrands}
-                onChange={this.props.onValueChange}
-                input={this.props.inputs.watchBrand}
-            />
-        )
-
-        if (this.state.brandNotListed) {
-            brandInput = (
-                <TextInput
-                    label={'Brand'}
-                    onChange={this.props.onValueChange}
-                    input={this.props.inputs.watchBrand}
-                />
-
-            )
-        }
-
         return (
             <section className={classes.OfferInformation}>
                 <div className={classes.row1}>
@@ -54,12 +30,52 @@ class OfferInformation extends Component {
                         input={this.props.inputs.watchType}
                     />
                 </div>
+                <h4>Add watch to these categories</h4>
+                <div className={classes.checkboxRow}>
+                    <CheckboxInput 
+                        label={'Diving Watches'}
+                        input={this.props.inputs.watchCategoryDiving}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput 
+                        label={'Pilot Watches'}
+                        input={this.props.inputs.watchCategoryPilot}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput 
+                        label={'Vintage Watches'}
+                        input={this.props.inputs.watchCategoryVintage}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput
+                        label={'Mechanical Watches'}
+                        input={this.props.inputs.watchCategoryMechanic}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput
+                        label={'Military Watches'}
+                        input={this.props.inputs.watchCategoryMilitary}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput
+                        label={'Golden Watches'}
+                        input={this.props.inputs.watchCategoryGolden}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                    <CheckboxInput
+                        label={'Automatic Watches'}
+                        input={this.props.inputs.watchCategoryAutomatic}
+                        onChange={this.props.onCheckboxChange}
+                    />
+                </div>
                 <hr />
                 <div className={classes.block2}>
-                    <div className={classes.brandBlock}>
-                        {brandInput}
-                        <p className={classes.brandNotListed} onClick={() => this.setState({ brandNotListed: true })}>Make/brand not listed?</p>
-                    </div>
+                    <VariableInput 
+                        label={'Brand'}
+                        onChange={this.props.onValueChange}
+                        input={this.props.inputs.watchBrand}
+                        options={watchBrands}
+                    />
                     <TextInput
                         label={'Model'}
                         onChange={this.props.onValueChange}
@@ -139,6 +155,13 @@ class OfferInformation extends Component {
 
 const mapStateToProps = (state) => ({
     inputs: {
+        watchCategoryAutomatic: state.watchForm.watchCategoryAutomatic,
+        watchCategoryPilot: state.watchForm.watchCategoryPilot,
+        watchCategoryMechanic: state.watchForm.watchCategoryMechanic,
+        watchCategoryVintage: state.watchForm.watchCategoryVintage,
+        watchCategoryGolden: state.watchForm.watchCategoryGolden,
+        watchCategoryMilitary: state.watchForm.watchCategoryMilitary,
+        watchCategoryDiving: state.watchForm.watchCategoryDiving,
         watchOfferName: state.watchForm.watchOfferName,
         watchType: state.watchForm.watchType,
         watchBrand: state.watchForm.watchBrand,

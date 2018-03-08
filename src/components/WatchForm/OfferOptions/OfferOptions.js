@@ -20,11 +20,11 @@ class OfferOptions extends Component {
           input={this.props.inputs.watchAvailability}
           options={watchAvailability}
         />
-        <CheckboxInput 
+        {/* <CheckboxInput 
           label={'Several items available'}
           input={this.props.inputs.watchSeveralItemsAvailable}
           onChange={this.props.onCheckboxChange}
-        />
+        /> */}
         <div className={classes.row}>
           <DropDownInput 
             label={'Domestic'}

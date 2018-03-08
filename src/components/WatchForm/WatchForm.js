@@ -46,13 +46,13 @@ class WatchForm extends Component {
                 <div className={classes.buttons}>
                     <Button
                         onClick={this.handleCheckForm}
-                        disabled={this.props.valid}
+                        disabled={this.props.valid || this.props.imageLoading}
                     >
                         Validate
                     </Button>
                     <Button
                         onClick={this.handleSubmit}
-                        disabled={!this.props.valid}
+                        disabled={!this.props.valid || this.props.imageLoading}
                     >
                         Save Offer
                     </Button>
@@ -67,7 +67,8 @@ const mapStateToProps = (state) => ({
     valid: state.watchForm.valid,
     submitted: state.watchForm.submitted,
     loading: state.watchForm.loading,
-    error: state.watchForm.error
+    error: state.watchForm.error,
+    imageLoading: state.watchForm.imageLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
