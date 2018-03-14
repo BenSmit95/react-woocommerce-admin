@@ -1,3 +1,8 @@
+import { 
+  jewelryCategoryNew,
+  jewelryCategoryOccasion
+} from '../../../_secret/jewelryFormData';
+
 const defaultState = {
   jewelryName: {
     value: '',
@@ -10,10 +15,18 @@ const defaultState = {
   jewelryType: {
     value: '',
     error: '',
-    controls: {
-      required: true
-    },
+    controls: {},
     name: 'jewelryType'
+  },
+  jewelryCategories: {
+    jewelryNew: jewelryCategoryNew.reduce((acc, other) => {
+      acc[other.name] = false
+      return acc;
+    }, {}),
+    jewelryOccasion: jewelryCategoryOccasion.reduce((acc, other) => {
+      acc[other.name] = false
+      return acc;
+    }, {}),
   },
   jewelryBrand: {
     value: '',
@@ -35,11 +48,11 @@ const defaultState = {
     controls: {},
     name: 'jewelryPreciousMetal'
   }, 
-  jewelryLinkChain: {
+  jewelryLinkType: {
     value: '',
     error: '',
     controls: {},
-    name: 'jewelryLinkChain'
+    name: 'jewelryLinkType'
   },
   jewelryCondition: {
     value: '',
@@ -47,11 +60,11 @@ const defaultState = {
     controls: {},
     name: 'jewelryCondition'
   },
-  jewelryContent: {
+  jewelryKRT: {
     value: '',
     error: '',
     controls: {},
-    name: 'jewelryContent'
+    name: 'jewelryKRT'
   },
   jewelryLength: {
     value: '',
@@ -77,11 +90,11 @@ const defaultState = {
     controls: {},
     name: 'jewelryThickness'
   },
-  jewelrySize: {
+  jewelryDimension: {
     value: '',
     error: '',
     controls: {},
-    name: 'jewelrySize'
+    name: 'jewelryDimension'
   },
   jewelryDiameter: {
     value: '',

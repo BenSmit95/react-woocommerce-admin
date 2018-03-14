@@ -57,6 +57,17 @@ const jewelryFormReducer = (state = defaultState, action) => {
         ...state,
         jewelryImportImages: state.jewelryImportImages.filter((image) => action.id !== image.id)
       }
+    case actionTypes.TOGGLE_JEWELRYFORM_CATEGORY:
+      return {
+        ...state,
+        jewelryCategories: {
+          ...state.jewelryCategories,
+          [action.parentName]: {
+            ...state.jewelryCategories[action.parentName],
+            [action.fieldName]: !state.jewelryCategories[action.parentName][action.fieldName]
+          }
+        }
+      }
     case actionTypes.SET_JEWELRYFORM_ERROR:
       return {
         ...state,

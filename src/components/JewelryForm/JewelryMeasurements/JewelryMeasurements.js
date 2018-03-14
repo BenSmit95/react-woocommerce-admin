@@ -33,9 +33,9 @@ class JewelryMeasurements extends Component {
             input={this.props.inputs.jewelryThickness}
           />
           <NumberInput
-            label={'Size (mm)'}
+            label={'Dimension (mm)'}
             onChange={this.props.onValueChange}
-            input={this.props.inputs.jewelrySize}
+            input={this.props.inputs.jewelryDimension}
           />
           <NumberInput
             label={'Diameter (mm)'}
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => ({
     jewelryWidth: state.jewelryForm.jewelryWidth,
     jewelryHeight: state.jewelryForm.jewelryHeight,
     jewelryThickness: state.jewelryForm.jewelryThickness,
-    jewelrySize: state.jewelryForm.jewelrySize,
+    jewelryDimension: state.jewelryForm.jewelryDimension,
     jewelryDiameter: state.jewelryForm.jewelryDiameter,
     jewelryRingSize: state.jewelryForm.jewelryRingSize,
     jewelryWeight: state.jewelryForm.jewelryWeight

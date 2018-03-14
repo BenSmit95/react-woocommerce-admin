@@ -101,3 +101,9 @@ export const setJewelryFormError = (fieldName, error) => ({
   fieldName,
   error
 });
+
+export const toggleJewelryFormCategory = (fieldName, parentName) => ({
+  type: actionTypes.TOGGLE_JEWELRYFORM_CATEGORY,
+  parentName,
+  fieldName
+});

@@ -4,8 +4,8 @@ import classes from './JewelryDetails.css';
 import * as actions from '../../../store/actions/index';
 import { 
   jewelryPreciousMetal, 
-  jewelryLinkChain,
-  jewelryContent,
+  jewelryLinkTypes,
+  jewelryKRT,
   jewelryGender,
   jewelryGemstones,
   jewelryColor,
@@ -30,16 +30,16 @@ class JewelryDetails extends Component {
             input={this.props.inputs.jewelryPreciousMetal}
           />
           <VariableInput
-            label={'Link Chain'}
-            options={jewelryLinkChain}
+            label={'Type of Links'}
+            options={jewelryLinkTypes}
             onChange={this.props.onValueChange}
-            input={this.props.inputs.jewelryLinkChain}
+            input={this.props.inputs.jewelryLinkType}
           />
           <VariableInput
-            label={'Content'}
-            options={jewelryContent}
+            label={'KRT'}
+            options={jewelryKRT}
             onChange={this.props.onValueChange}
-            input={this.props.inputs.jewelryContent}
+            input={this.props.inputs.jewelryKRT}
           />
           <TextInput 
             label={'Carat'}
@@ -85,8 +85,8 @@ class JewelryDetails extends Component {
 const mapStateToProps = (state) => ({
   inputs: {
     jewelryPreciousMetal: state.jewelryForm.jewelryPreciousMetal,
-    jewelryLinkChain: state.jewelryForm.jewelryLinkChain,
-    jewelryContent: state.jewelryForm.jewelryContent,
+    jewelryLinkType: state.jewelryForm.jewelryLinkType,
+    jewelryKRT: state.jewelryForm.jewelryKRT,
     jewelryGender: state.jewelryForm.jewelryGender,
     jewelryCarat: state.jewelryForm.jewelryCarat,
     jewelryCut: state.jewelryForm.jewelryCut,
