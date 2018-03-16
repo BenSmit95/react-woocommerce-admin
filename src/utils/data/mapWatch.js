@@ -1,3 +1,5 @@
+import * as attributes from '../../_secret/watchAttributes';
+
 export const mapWatchAttribute = (attribute) => {
   switch(attribute.id) {
     case 5: return ('watchBrand');

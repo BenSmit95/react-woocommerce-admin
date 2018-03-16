@@ -103,7 +103,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onImagesConfirmed: (files) => dispatch(actions.confirmJewelryImages(files)),
-  onRemoveImportImage: (id) => dispatch(actions.startRemoveImportImage(id))
+  onRemoveImportImage: (id) => dispatch(actions.startRemoveJewelryImportImage(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(JewelryPictures);

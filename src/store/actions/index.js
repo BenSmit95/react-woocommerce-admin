@@ -26,5 +26,8 @@ export {
   confirmJewelryImages,
   checkJewelryForm,
   toggleJewelryFormCategory,
-  postJewelryFormOffer
+  postJewelryFormOffer,
+  fetchJewel,
+  updateJewelryFormOffer,
+  startRemoveJewelryImportImage
 } from './jewelryForm';

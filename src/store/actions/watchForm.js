@@ -87,9 +87,10 @@ export const postWatchFormOffer = () => {
 
 export const updateWatchFormOffer = (id) => {
     return (dispatch, getState) => {
+        dispatch(watchFormStartLoading())
         const watchForm = {...getState().watchForm };
         const data = transformData(watchForm);
-        updateProduct(data, watchForm.watchImageRemoveList, id)
+        updateProduct(data, watchForm.watchImageRemoveList, id, () => dispatch(watchFormSubmitted()))
     }
 }
 

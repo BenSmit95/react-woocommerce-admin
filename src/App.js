@@ -7,6 +7,7 @@ import WatchOverview from './containers/pages/WatchOverview/WatchOverview';
 import EditWatch from './containers/pages/EditWatch/EditWatch';
 import CreateJewelry from './containers/pages/CreateJewelry/CreateJewelry';
 import JewelryOverview from './containers/pages/JewelryOverview/JewelryOverview';
+import EditJewelry from './containers/pages/EditJewelry/EditJewelry';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/watch/edit/:id" component={EditWatch} />
           <Route path="/jewelry/create" component={CreateJewelry} />
           <Route path="/jewelry/list" component={JewelryOverview} />
+          <Route path="/jewelry/edit/:id" component={EditJewelry} />
         </Switch>
       </Layout>
     );

@@ -1,6 +1,9 @@
 import * as actionTypes from './actionTypes';
-import { postImages, postProduct } from '../../_secret/auth';
+import * as jewelryAttributes from '../../_secret/jewelryAttributes';
+import { postImages, postProduct, getProductById, updateProduct } from '../../_secret/auth';
 import transformData from '../../utils/data/transformJewelryData';
+import { stripHTML } from '../../utils/data/utility';
+import { mapJewelryAttribute, mapJewelryCategory } from '../../utils/data/mapJewelry';
 
 export const resetJewelryform = () => ({
   type: actionTypes.RESET_JEWELRYFORM
@@ -131,3 +134,58 @@ export const postJewelryFormOffer = () => {
 export const jewelryFormSubmitted = () => ({
   type: actionTypes.JEWELRYFORM_SUBMIT_SUCCESS
 });
+
+export const updateJewelryFormOffer = (id) => {
+  return (dispatch, getState) => {
+    dispatch(jewelryFormStartLoading())
+    const jewelryForm = {...getState().jewelryForm };
+    const data = transformData(jewelryForm);
+    updateProduct(data, jewelryForm.jewelryImageRemoveList, id, () => dispatch(jewelryFormSubmitted()));
+  }
+}
+
+export const fetchJewel = (id) => {
+  return (dispatch) => {
+    dispatch(resetJewelryform());
+    getProductById(id)
+    .then((jewel) => {
+      jewel.attributes.forEach((attribute) => {
+        let fieldName = mapJewelryAttribute(attribute);
+        if(fieldName) dispatch(setJewelryFormField(fieldName, attribute.options[0]));
+      })
+      // Name and price
+      dispatch(setJewelryFormField('jewelryPrice', jewel.price));
+      dispatch(setJewelryFormField('jewelryName', stripHTML(jewel.name)));
+
+      // Categories
+      jewel.categories.forEach((category) => {
+        let fieldName = mapJewelryCategory(category);
+        if(fieldName) {
+          let parentName = category.slug.indexOf('occ') !== -1 ? 'jewelryOccasion' : 'jewelryNew';
+          dispatch(toggleJewelryFormCategory(fieldName, parentName));
+        }
+      });
+      // Descriptions
+      if(jewel.description) {
+        dispatch(setJewelryFormField('jewelryDescription', stripHTML(jewel.description)))
+      }
+      if(jewel.short_description) {
+        dispatch(setJewelryFormField('jewelryInternalCode', stripHTML(jewel.short_description)))
+      }
+
+      const scopeAttribute = (jewel.attributes.find((attribute) => (attribute.id === jewelryAttributes.SCOPE_OF_DELIVERY)));
+        if (scopeAttribute && scopeAttribute.options.indexOf('With Box') !== -1) dispatch(toggleJewelryFormCheckbox('jewelryWithBox'));
+        if (scopeAttribute && scopeAttribute.options.indexOf('With Papers') !== -1) dispatch(toggleJewelryFormCheckbox('jewelryWithPapers'));
+      
+      const importedImages = (jewel.images.map((image) => ({
+        url: image.src,
+        id: image.id
+      })));
+      // Then add to state
+      dispatch(setJewelryImportImages(importedImages));
+
+      // Set the ID's to the remove list, since Woocommerce copies images on submit
+      dispatch(setJewelryRemoveIds(importedImages.map((image) => image.id)));
+    });
+  }
+}

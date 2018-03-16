@@ -7,10 +7,11 @@ import {
 const transformJewelryData = (data) => {
 
   // Jewelry categories
+  console.log(data.jewelryCategories);
   const occArray = mapOccCategories(data.jewelryCategories.jewelryOccasion);
   const newArray = mapNewCategories(data.jewelryCategories.jewelryNew);
   const categoriesArray = [{ id: jewelryCategories.JEWELRY }].concat(occArray, newArray);
-
+  console.log(categoriesArray);
 
   const jewelryScopeOfDelivery = [];
   if(data.jewelryWithBox.value) jewelryScopeOfDelivery.push('With Box');
@@ -51,6 +52,9 @@ const transformJewelryData = (data) => {
         id: jewelryAttributes.WIDTH,
         options: [data.jewelryWidth.value],
       }, {
+        id: jewelryAttributes.HEIGHT,
+        options: [data.jewelryHeight.value]
+      } ,{
         id: jewelryAttributes.THICKNESS,
         options: [data.jewelryThickness.value]
       }, {
