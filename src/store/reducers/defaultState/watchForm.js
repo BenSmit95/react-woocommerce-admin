@@ -1,6 +1,8 @@
 import { 
   watchFunctions,
-  watchOthers
+  watchOthers,
+  watchAvailability,
+  watchDeliveryEstimate
 } from '../../../_secret/watchFormData';
 
 export const defaultState = {
@@ -151,7 +153,7 @@ export const defaultState = {
     name: 'watchWithPapers'
   },
   watchAvailability: {
-    value: 'Available now',
+    value: watchAvailability[0],
     error: '',
     controls: {},
     name: 'watchAvailability'
@@ -163,19 +165,19 @@ export const defaultState = {
     name: "watchSeveralItemsAvailable"
   },
   watchDomesticEstimate: {
-    value: '2-6 days',
+    value: watchDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'watchDomesticEstimate'
   },
   watchContinentalEstimate: {
-    value: '1-2 weeks',
+    value: watchDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'watchContinentalEstimate'
   },
   watchWorldwideEstimate: {
-    value: '2-3 weeks',
+    value: watchDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'watchWorldwideEstimate'

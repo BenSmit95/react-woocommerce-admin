@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
-import { postImages } from '../../_secret/auth';
+import { postImages, postProduct } from '../../_secret/auth';
+import transformData from '../../utils/data/transformJewelryData';
 
 export const resetJewelryform = () => ({
   type: actionTypes.RESET_JEWELRYFORM
@@ -22,7 +23,8 @@ export const setJewelryImages = (urls) => ({
 });
 
 export const setJewelryRemoveIds = (ids) => ({
-  type: actionTypes.SET_JEWELRY_REMOVE_IDS
+  type: actionTypes.SET_JEWELRY_REMOVE_IDS,
+  ids
 });
 
 export const startJewelryImageLoading = () => ({
@@ -44,6 +46,7 @@ export const confirmJewelryImages = (files) => {
         urlList.push(listItem.url);
         idList.push(listItem.id);
       });
+      console.log(idList);
       dispatch(setJewelryRemoveIds(idList));
       dispatch(setJewelryImages(urlList));
       dispatch(stopJewelryImageLoading());
@@ -106,4 +109,25 @@ export const toggleJewelryFormCategory = (fieldName, parentName) => ({
   type: actionTypes.TOGGLE_JEWELRYFORM_CATEGORY,
   parentName,
   fieldName
+});
+
+export const jewelryFormStartLoading = () => ({
+  type: actionTypes.JEWELRYFORM_START_LOADING
+});
+
+export const jewelryFormStopLoading = () => ({
+  type: actionTypes.JEWELRYFORM_STOP_LOADING
+});
+
+export const postJewelryFormOffer = () => {
+  return (dispatch, getState) => {
+    dispatch(jewelryFormStartLoading());
+      const jewelryForm = {...getState().jewelryForm};
+      const data = transformData(jewelryForm);
+      postProduct(data, jewelryForm.jewelryImageRemoveList, () => dispatch(jewelryFormSubmitted()));
+  }
+}
+
+export const jewelryFormSubmitted = () => ({
+  type: actionTypes.JEWELRYFORM_SUBMIT_SUCCESS
 });

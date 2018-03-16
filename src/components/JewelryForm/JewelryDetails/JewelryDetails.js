@@ -10,12 +10,14 @@ import {
   jewelryGemstones,
   jewelryColor,
   jewelryClarity,
-  jewelryCut
+  jewelryCut,
+  jewelryCondition
 } from '../../../_secret/jewelryFormData';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import VariableInput from '../../UI/Inputs/VariableInput/VariableInput';
 import TextInput from '../../UI/Inputs/TextInput/TextInput';
+import DropdownInput from '../../UI/Inputs/DropdownInput/DropdownInput';
 
 class JewelryDetails extends Component {
   render() {
@@ -76,6 +78,12 @@ class JewelryDetails extends Component {
             onChange={this.props.onValueChange}
             input={this.props.inputs.jewelryGemstones}
           />
+          <DropdownInput
+            label={'Condition'}
+            options={jewelryCondition}
+            onChange={this.props.onValueChange}
+            input={this.props.inputs.jewelryCondition}
+          />
         </div>
       </section>
     )
@@ -92,7 +100,8 @@ const mapStateToProps = (state) => ({
     jewelryCut: state.jewelryForm.jewelryCut,
     jewelryClarity: state.jewelryForm.jewelryClarity,
     jewelryColor: state.jewelryForm.jewelryColor,
-    jewelryGemstones: state.jewelryForm.jewelryGemstones
+    jewelryGemstones: state.jewelryForm.jewelryGemstones,
+    jewelryCondition: state.jewelryForm.jewelryCondition
   }
 });
 

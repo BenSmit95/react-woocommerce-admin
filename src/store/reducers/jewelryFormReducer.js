@@ -10,7 +10,7 @@ const jewelryFormReducer = (state = defaultState, action) => {
           ...state[action.fieldName],
           value: action.value
         },
-        valid: true
+        valid: false
       }
     case actionTypes.TOGGLE_JEWELRYFORM_CHECKBOX:
       return {
@@ -19,7 +19,7 @@ const jewelryFormReducer = (state = defaultState, action) => {
           ...state[action.fieldName],
           value: !state[action.fieldName].value
         },
-        valid: true
+        valid: false
       }
     case actionTypes.SET_JEWELRY_IMAGES:
       return {
@@ -29,7 +29,7 @@ const jewelryFormReducer = (state = defaultState, action) => {
           value: action.urls
         }
       }
-    case actionTypes.SET_REMOVE_IDS:
+    case actionTypes.SET_JEWELRY_REMOVE_IDS:
       return {
         ...state,
         jewelryImageRemoveList: [
@@ -68,6 +68,12 @@ const jewelryFormReducer = (state = defaultState, action) => {
           }
         }
       }
+    case actionTypes.JEWELRYFORM_SUBMIT_SUCCESS:
+      return {
+        ...state,
+        submitted: true,
+        loading: false
+      }
     case actionTypes.SET_JEWELRYFORM_ERROR:
       return {
         ...state,
@@ -80,6 +86,16 @@ const jewelryFormReducer = (state = defaultState, action) => {
       return {
         ...state,
         valid: true
+      }
+    case actionTypes.JEWELRYFORM_START_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    case actionTypes.JEWELRYFORM_STOP_LOADING:
+      return {
+        ...state,
+        loading: false
       }
     case actionTypes.RESET_JEWELRYFORM:
       return defaultState;

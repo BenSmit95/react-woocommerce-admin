@@ -20,6 +20,7 @@ class JewelryForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.onSubmit();
   }
 
   handleCheckForm = () => {

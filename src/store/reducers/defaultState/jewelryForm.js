@@ -1,6 +1,8 @@
 import { 
   jewelryCategoryNew,
-  jewelryCategoryOccasion
+  jewelryCategoryOccasion,
+  jewelryAvailability,
+  jewelryDeliveryEstimate
 } from '../../../_secret/jewelryFormData';
 
 const defaultState = {
@@ -181,25 +183,25 @@ const defaultState = {
     name: 'jewelryDescription',
   },
   jewelryDomesticEstimate: {
-    value: '',
+    value: jewelryDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'jewelryDomesticEstimate'
   },
   jewelryContinentalEstimate: {
-    value: '',
+    value: jewelryDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'jewelryContinentalEstimate'
   },
   jewelryWorldwideEstimate: {
-    value: '',
+    value: jewelryDeliveryEstimate[0],
     error: '',
     controls: {},
     name: 'jewelryWorldwideEstimate'
   },
   jewelryAvailability: {
-    value: '',
+    value: jewelryAvailability[0],
     error: '',
     controls: {
       required: true

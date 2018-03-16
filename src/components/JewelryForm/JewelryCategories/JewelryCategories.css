@@ -1,0 +1,18 @@
+.checkboxLayout {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.checkboxLayout h3 {
+  color: #33474F;
+  font-family: Trenda-Bold, sans-serif;
+}
+
+.checkboxLayout > div {
+  flex: 1 1 50%;
+}
+
+.checkboxLayout label {
+  color: #33474F;
+  font-family: Trenda-Regular, sans-serif;
+}

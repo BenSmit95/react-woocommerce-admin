@@ -21,5 +21,6 @@ export {
   toggleJewelryFormCheckbox,
   confirmJewelryImages,
   checkJewelryForm,
-  toggleJewelryFormCategory
+  toggleJewelryFormCategory,
+  postJewelryFormOffer
 } from './jewelryForm';

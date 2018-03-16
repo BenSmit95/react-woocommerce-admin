@@ -5,6 +5,7 @@ import {
   jewelryCategoryNew,
   jewelryCategoryOccasion
 } from '../../../_secret/jewelryFormData';
+import classes from './JewelryCategories.css';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import JewelryCategoryInput from './JewelryCategoryInput/JewelryCategoryInput';
@@ -36,11 +37,15 @@ class JewelryCategories extends Component {
     return (
       <section>
         <SectionHeader>Categories</SectionHeader>
-        <div>
-          {checkboxesOccasion}
-        </div>
-        <div>
-          {checkboxesNew}
+        <div className={classes.checkboxLayout}>
+          <div>
+            <h3>Jewelry Occasion</h3>
+            {checkboxesOccasion}
+          </div>
+          <div>
+            <h3>Jewelry New</h3>
+            {checkboxesNew}
+          </div>
         </div>
       </section>
     )
