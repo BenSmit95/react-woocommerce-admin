@@ -1,0 +1,11 @@
+.EditJewelry {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.content {
+  margin: auto;
+  width: 85%;
+}

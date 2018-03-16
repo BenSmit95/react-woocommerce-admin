@@ -7,6 +7,7 @@ import ProductList from '../../../components/ProductList/ProductList';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Button from '../../../components/UI/Button/Button';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
+import JewelryListControls from '../../JewelryListControls/JewelryListControls';
 
 class JewelryOverview extends Component {
   componentDidMount() {
@@ -29,9 +30,10 @@ class JewelryOverview extends Component {
     }
 
     return (
-      <div>
+      <div className={classes.JewelryOverview}>
         <div className={classes.pane}>
           <PageHeader>Manage Jewelry</PageHeader>
+          <JewelryListControls />
         </div>
         <div className={classes.content}>
           {content}

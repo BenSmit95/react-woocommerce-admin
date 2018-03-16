@@ -6,36 +6,36 @@ import classes from './WatchListControls.css';
 
 import SectionHeader from '../../components/UI/SectionHeader/SectionHeader';
 import Button from '../../components/UI/Button/Button';
-import DropdownInput from '../../components/UI/Inputs/DropdownInput/DropdownInput';
+import VariableInput from '../../components/UI/Inputs/VariableInput/VariableInput';
 import TextInput from '../../components/UI/Inputs/TextInput/TextInput';
 import { setWatchListFilter } from '../../store/actions/watchList';
 
 class WatchListControls extends Component {
-  state = {
-    brand: {
-      value: '',
-      name: 'brand',
-      controls: {
-        whiteOption: true
-      }
-    }
-  }
+  // state = {
+  //   brand: {
+  //     value: '',
+  //     name: 'brand',
+  //     controls: {
+  //       whiteOption: true
+  //     }
+  //   }
+  // }
 
-  onInputChanged = (inputName, value) => {
-    this.setState({
-      [inputName]: {
-        ...this.state[inputName],
-        value
-      }
-    });
-  }
+  // onInputChanged = (inputName, value) => {
+  //   this.setState({
+  //     [inputName]: {
+  //       ...this.state[inputName],
+  //       value
+  //     }
+  //   });
+  // }
 
   render() {
     return (
       <div className={classes.WatchListControls}>
         <SectionHeader>Filter</SectionHeader>
         <div className={classes.inputContainer}>
-          <DropdownInput 
+          <VariableInput 
             label={'Brand'}
             options={ watchBrands }
             input={this.props.filters.brand}

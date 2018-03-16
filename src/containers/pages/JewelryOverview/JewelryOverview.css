@@ -1,0 +1,17 @@
+.JewelryOverview {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.pane {
+  background-color: #cdd4d8;
+  box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
+  width: 100%;
+}
+
+.content {
+  flex: 1 1 0;
+  margin: auto;
+  width: 100%;
+}

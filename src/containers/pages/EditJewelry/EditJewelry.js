@@ -31,7 +31,7 @@ class EditJewelry extends Component {
     }
     return (
       <div className={classes.EditJewelry}>
-        <PageHeader>Edit watch</PageHeader>
+        <PageHeader>Edit jewelry</PageHeader>
         <div className={classes.content}>
           {content}
         </div>
