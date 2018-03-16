@@ -16,6 +16,10 @@ export {
 } from './watchList';
 
 export {
+  fetchJewelry
+} from './jewelryList';
+
+export {
   resetJewelryform,
   setJewelryFormField,
   toggleJewelryFormCheckbox,
