@@ -1,4 +1,18 @@
 .ProductList {
+  margin-top: 0;
+}
+
+.ProductList h3 {
+  color: #33474F;
+  font-family: Trenda-bold;
+  font-size: 25px;
+  padding: 5px 20px;
+  border-top: 1px solid #33474F;
+  border-bottom: 1px solid #33474F;
+}
+
+.list {
+  margin-top: 0;
   list-style: none;
   padding: 0;
 }

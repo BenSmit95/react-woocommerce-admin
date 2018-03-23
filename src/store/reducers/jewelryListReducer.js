@@ -4,7 +4,20 @@ const defaultState = {
   jewelry: [],
   loading: false,
   filters: {
-
+    brand: {
+      value: '',
+      controls: {
+        whiteOption: true
+      },
+      name: 'brand'
+    },
+    name: {
+      value: '',
+      controls: {
+        whiteOption: true
+      },
+      name: 'name'
+    },
   }
 };
 

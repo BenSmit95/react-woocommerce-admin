@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { checkJewelryFilter } from '../../../utils/data/checkJewelryFilter';
 import classes from './JewelryOverview.css';
 import * as actions from '../../../store/actions/index';
 
@@ -18,10 +19,9 @@ class JewelryOverview extends Component {
   render() {
     let content = <Spinner />;
     if (!this.props.loading) {
-      const displayJewelry = this.props.jewelry;
-      // const displayJewelry = this.props.watches.filter((watch) => (
-      //   checkWatchFilter(watch, this.props.filters)
-      // ));
+      const displayJewelry = this.props.jewelry.filter((jewelry) => (
+        checkJewelryFilter(jewelry, this.props.filters)
+      ));
       content =
         <ProductList
           products={displayJewelry}

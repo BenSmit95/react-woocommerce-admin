@@ -57,13 +57,13 @@ class JewelryForm extends Component {
           <Button
             type="button"
             onClick={this.handleCheckForm}
-            disabled={this.props.valid}
+            disabled={this.props.valid || this.props.imageLoading}
           >
             Validate
           </Button>
           <Button
             onClick={this.handleSubmit}
-            disabled={!this.props.valid}
+            disabled={!this.props.valid || this.props.imageLoading}
           >
             Save Offer
           </Button>
@@ -77,6 +77,7 @@ const mapStateToProps = (state) => ({
   valid: state.jewelryForm.valid,
   submitted: state.jewelryForm.submitted,
   loading: state.jewelryForm.loading,
+  imageLoading: state.jewelryForm.imageLoading,
   error: state.jewelryForm.error
 });
 

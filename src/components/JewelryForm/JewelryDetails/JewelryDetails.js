@@ -11,7 +11,6 @@ import {
   jewelryColor,
   jewelryClarity,
   jewelryCut,
-  jewelryCondition
 } from '../../../_secret/jewelryFormData';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
@@ -77,12 +76,6 @@ class JewelryDetails extends Component {
             options={jewelryGemstones}
             onChange={this.props.onValueChange}
             input={this.props.inputs.jewelryGemstones}
-          />
-          <DropdownInput
-            label={'Condition'}
-            options={jewelryCondition}
-            onChange={this.props.onValueChange}
-            input={this.props.inputs.jewelryCondition}
           />
         </div>
       </section>

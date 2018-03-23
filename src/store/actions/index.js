@@ -16,7 +16,8 @@ export {
 } from './watchList';
 
 export {
-  fetchJewelry
+  fetchJewelry,
+  setJewelryListFilter
 } from './jewelryList';
 
 export {

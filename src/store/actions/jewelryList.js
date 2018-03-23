@@ -11,7 +11,8 @@ export const fetchJewelry = () => {
         name: jewelry.name,
         price: jewelry.price,
         id: jewelry.id,
-        image: jewelry.images[0].src
+        image: jewelry.images[0].src,
+        brand: jewelry.attributes.find(attributes => attributes.id === jewelryAttributes.BRAND) ? jewelry.attributes.find(attributes => attributes.id === jewelryAttributes.BRAND).options[0] : '',
       }));
       dispatch(setJewelryList(jewelryList));
     })

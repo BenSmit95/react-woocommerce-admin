@@ -6,6 +6,7 @@
 
 .ProductListItem:hover {
   background-color: #CCD4D8;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 .link {
@@ -15,7 +16,55 @@
 }
 
 .image {
-  height: 100px;
+  height: 300px;
   object-fit: contain;
-  width: 100px;
+  width: 300px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.textarea {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+.textarea h4 {
+  color: #33474F;
+  font-family: Trenda-Bold;
+  font-size: 26px;
+}
+
+.price {
+  color: #C5963D;
+  font-family: Trenda-Bold;
+  font-size: 24px;
+}
+
+.textarea table {
+  max-width: 100%;
+  width: 500px;
+}
+
+.textarea tr {
+  align-items: center;
+  display: flex;
+  border-bottom: 1px solid #33474F;
+  padding: 5px 0;
+}
+
+.textarea th, .textarea td {
+  color: #33474F;
+  font-size: 20px;
+}
+
+.textarea th {
+  font-family: Trenda-Bold;
+  flex: 1 1 50%;
+}
+
+.textarea td { 
+  font-family: Trenda-regular;
+  flex: 1 1 50%;
 }

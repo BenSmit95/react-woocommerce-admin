@@ -11,24 +11,6 @@ import TextInput from '../../components/UI/Inputs/TextInput/TextInput';
 import { setWatchListFilter } from '../../store/actions/watchList';
 
 class WatchListControls extends Component {
-  // state = {
-  //   brand: {
-  //     value: '',
-  //     name: 'brand',
-  //     controls: {
-  //       whiteOption: true
-  //     }
-  //   }
-  // }
-
-  // onInputChanged = (inputName, value) => {
-  //   this.setState({
-  //     [inputName]: {
-  //       ...this.state[inputName],
-  //       value
-  //     }
-  //   });
-  // }
 
   render() {
     return (

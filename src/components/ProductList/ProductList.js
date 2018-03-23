@@ -11,9 +11,12 @@ const ProductList = (props) => {
     />
   ))
   return (
-    <ol className={classes.ProductList}>
-      {products}
-    </ol>
+    <div className={classes.ProductList}>
+      <h3>Currently showing {products.length} items</h3>
+      <ol className={classes.list}>
+        {products}
+      </ol>
+    </div> 
   )
 }
 
