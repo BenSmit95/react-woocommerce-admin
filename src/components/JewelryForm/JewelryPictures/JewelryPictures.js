@@ -11,7 +11,8 @@ import Spinner from '../../UI/Spinner/Spinner';
 class JewelryPictures extends Component {
   state = {
     files: [],
-    loading: false
+    loading: false,
+    confirmed: false
   }
 
   handleRemoveImage = (e, key) => {
@@ -24,9 +25,15 @@ class JewelryPictures extends Component {
     this.props.onRemoveImportImage(id);
   };
 
-  onDrop = (acceptedFiles) => this.setState({ files: this.state.files.concat(acceptedFiles) });
+  onDrop = (acceptedFiles) => this.setState({ 
+    files: this.state.files.concat(acceptedFiles),
+    confirmed: false
+  });
 
-  onImagesConfirmed = () => this.props.onImagesConfirmed(this.state.files);
+  onImagesConfirmed = () => {
+    this.props.onImagesConfirmed(this.state.files);
+    this.setState({ confirmed: true });
+  };
 
   render() {
     const preview = (this.state.files.length > 0 || this.props.importImages.length) ? (
@@ -76,13 +83,20 @@ class JewelryPictures extends Component {
     return (
       <section className={classes.JewelryPictures}>
         <SectionHeader>Offer Pictures</SectionHeader>
-        <Button
-          onClick={this.onImagesConfirmed}
-          type="button"
-          disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
-        >
-          Confirm Images
-        </Button>
+        <div className={classes.confirmContainer}>
+          <Button
+            onClick={this.onImagesConfirmed}
+            type="button"
+            disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
+          >
+            Confirm Images
+          </Button>
+            {(this.state.confirmed && !this.props.loading) ? (
+              <p className={classes.confirmed}>CONFIRMED</p>
+            ) : (
+                <p className={classes.unconfirmed}>NOT CONFIRMED</p>
+            )}
+        </div>
         <Dropzone
           accept="image/*"
           onDrop={this.onDrop}

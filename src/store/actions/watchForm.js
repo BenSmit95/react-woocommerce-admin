@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import * as actions from './index';
 import transformData from '../../utils/data/transformWatchData';
 import { mapWatchAttribute, mapWatchCheckbox, mapWatchCategory } from '../../utils/data/mapWatch';
 import { stripHTML } from '../../utils/data/utility';
@@ -6,6 +7,7 @@ import { postProduct, postImages, getProductById, updateProduct } from '../../_s
 import * as watchAttributes from '../../_secret/watchAttributes';
 import { watchFunctions, watchOthers } from '../../_secret/watchFormData';
 import * as watchCategories from '../../_secret/watchCategories';
+import { mapWatchToList } from '../../utils/data/mapWatch';
 
 export const setWatchFormField = (fieldName, value) => ({
     type: actionTypes.SET_WATCHFORM_FIELD,
@@ -81,7 +83,7 @@ export const postWatchFormOffer = () => {
         const watchForm = { ...getState().watchForm };
         const data = transformData(watchForm);
         console.log(watchForm.watchImageRemoveList);
-        postProduct(data, watchForm.watchImageRemoveList, () => dispatch(watchFormSubmitted()));
+        postProduct(data, watchForm.watchImageRemoveList, (watch) => dispatch(onWatchFormSubmitted(watch)));
     }
 }
 
@@ -93,6 +95,14 @@ export const updateWatchFormOffer = (id) => {
         updateProduct(data, watchForm.watchImageRemoveList, id, () => dispatch(watchFormSubmitted()))
     }
 }
+
+export const onWatchFormSubmitted = (watch) => {
+    return (dispatch, getState) => {
+        const newWatch = mapWatchToList(watch);
+        dispatch(actions.prependWatchList(newWatch));
+        dispatch(watchFormSubmitted());
+    }
+};
 
 export const watchFormSubmitted = () => ({
     type: actionTypes.WATCHFORM_SUBMIT_SUCCESS

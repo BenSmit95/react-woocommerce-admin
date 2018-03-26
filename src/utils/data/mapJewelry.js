@@ -75,3 +75,11 @@ export const mapJewelryCategory = (category) => {
     default: return null;
   }
 }
+
+export const mapJewelryToList = (jewelry) => ({
+  name: jewelry.name,
+  price: jewelry.price,
+  id: jewelry.id,
+  image: jewelry.images[0].src,
+  brand: jewelry.attributes.find(jewelryAttributes => jewelryAttributes.id === attributes.BRAND) ? jewelry.attributes.find(jewelryAttributes => jewelryAttributes.id === attributes.BRAND).options[0] : '',
+});

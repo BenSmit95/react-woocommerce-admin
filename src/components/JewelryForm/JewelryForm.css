@@ -8,3 +8,12 @@
   border: none;
   border-bottom: 1px solid #CDD4D8;
 }
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons > * {
+  margin-left: 25px;
+}

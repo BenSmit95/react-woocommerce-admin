@@ -23,6 +23,17 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch(action.type) {
+    case actionTypes.SET_JEWELRY_LIST_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.fieldName]: {
+            ...state.filters[action.fieldName],
+            value: action.value
+          }
+        }
+      }
     case actionTypes.JEWELRYLIST_START_FETCH:
       return {
         ...state,
@@ -34,16 +45,10 @@ const reducer = (state = defaultState, action) => {
         jewelry: action.jewelry,
         loading: false
       }
-    case actionTypes.SET_JEWELRY_LIST_FILTER:
+    case actionTypes.PREPEND_JEWELRY_LIST:
       return {
         ...state,
-        filters: {
-          ...state.filters,
-          [action.fieldName]: {
-            ...state.filters[action.fieldName],
-            value: action.value
-          }
-        }
+        jewelry: [action.jewelry].concat(state.jewelry)
       }
     default: return state;
   }

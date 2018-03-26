@@ -1,23 +1,23 @@
 import * as actionTypes from './actionTypes';
 import { getJewelry } from '../../_secret/auth';
 import * as jewelryAttributes from '../../_secret/jewelryAttributes';
+import { mapJewelryToList } from '../../utils/data/mapJewelry';
 
 export const fetchJewelry = () => {
   return (dispatch) => {
     dispatch(startFetch());
     getJewelry().then((responseList) => {
       console.log('In action creator:', responseList);
-      const jewelryList = responseList.map((jewelry) => ({
-        name: jewelry.name,
-        price: jewelry.price,
-        id: jewelry.id,
-        image: jewelry.images[0].src,
-        brand: jewelry.attributes.find(attributes => attributes.id === jewelryAttributes.BRAND) ? jewelry.attributes.find(attributes => attributes.id === jewelryAttributes.BRAND).options[0] : '',
-      }));
+      const jewelryList = responseList.map((jewelry) => mapJewelryToList(jewelry));
       dispatch(setJewelryList(jewelryList));
     })
   }
 }
+
+export const prependJewelryList = (jewelry) => ({
+  type: actionTypes.PREPEND_JEWELRY_LIST,
+  jewelry
+});
 
 export const setJewelryListFilter = (fieldName, value) => ({
   type: actionTypes.SET_JEWELRY_LIST_FILTER,

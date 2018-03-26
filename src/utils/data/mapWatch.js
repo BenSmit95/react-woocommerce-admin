@@ -1,4 +1,4 @@
-import * as attributes from '../../_secret/watchAttributes';
+import * as watchAttributes from '../../_secret/watchAttributes';
 
 export const mapWatchAttribute = (attribute) => {
   switch(attribute.id) {
@@ -56,4 +56,15 @@ export const mapWatchCategory = (category) => {
 export const mapWatchCheckbox = (option, list) => {
   const item = list.find((element) => element.label === option).name;
   return item;
-} 
+}
+
+// Maps attributes to the List
+export const mapWatchToList = (watch) => ({
+  name: watch.name,
+  price: watch.price,
+  id: watch.id,
+  image: watch.images[0].src,
+  ref: watch.attributes.find(attributes => attributes.id === watchAttributes.REF) ? watch.attributes.find(attributes => attributes.id === watchAttributes.REF).options[0] : '',
+  brand: watch.attributes.find(attributes => attributes.id === watchAttributes.BRAND) ? watch.attributes.find(attributes => attributes.id === watchAttributes.BRAND).options[0] : '',
+  model: watch.attributes.find(attributes => attributes.id === watchAttributes.MODEL) ? watch.attributes.find(attributes => attributes.id === watchAttributes.MODEL).options[0] : '',
+})

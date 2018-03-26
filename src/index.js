@@ -2,19 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store/setupStore';
-import createHistory from 'history/createBrowserHistory';
-
-const history = createHistory();
 
 const jsx = (
     <Provider store={store}>
-        <Router basename="/admin-area" history={history}>
+        <BrowserRouter basename="/admin-area">
             <App />
-        </Router>
+        </BrowserRouter>
     </Provider>
 )
 

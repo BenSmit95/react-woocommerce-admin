@@ -13,7 +13,8 @@ class OfferPictures extends Component {
 
   state = {
     files: [],
-    loading: false
+    loading: false,
+    confirmed: false
   }
 
   handleRemoveImage = (e, key) => {
@@ -27,11 +28,17 @@ class OfferPictures extends Component {
   }
 
   onDrop = (acceptedFiles) => {
-    this.setState({ files: this.state.files.concat(acceptedFiles) })
+    this.setState({ 
+      files: this.state.files.concat(acceptedFiles),
+      confirmed: false 
+    })
   }
 
   onImagesConfirmed = () => {
     this.props.onImagesConfirmed(this.state.files);
+    this.setState({
+      confirmed: true
+    });
   }
 
   render() {
@@ -83,19 +90,26 @@ class OfferPictures extends Component {
     return (
       <section className={classes.OfferPictures}>
         <SectionHeader>Pictures of your watch</SectionHeader>
-        <TextInput 
+        {/* <TextInput 
           label={'Youtube URL'}
           onChange={this.props.onValueChange}
           input={this.props.youtubeLink}
-        />
-        <Button
-          type="button"
-          // disable if no images, or if the component state is loading.
-          disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
-          onClick={this.onImagesConfirmed}
-        >
-          Confirm Images
-        </Button>
+        /> */}
+        <div className={classes.confirmContainer}>
+          <Button
+            type="button"
+            // disable if no images, or if the component state is loading.
+            disabled={((this.state.files.length <= 0) && (this.props.importImages.length <= 0)) || this.props.loading}
+            onClick={this.onImagesConfirmed}
+          >
+            Confirm Images
+          </Button>
+          {(this.state.confirmed && !this.props.loading) ? (
+            <p className={classes.confirmed}>CONFIRMED</p> 
+          ) : (
+            <p className={classes.unconfirmed}>NOT CONFIRMED</p>
+          )}
+        </div>
         <Dropzone
           accept="image/*"
           onDrop={this.onDrop}

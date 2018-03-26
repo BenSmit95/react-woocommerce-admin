@@ -1,25 +1,23 @@
 import * as actionTypes from './actionTypes';
 import { getWatches } from '../../_secret/auth';
+import { mapWatchToList } from '../../utils/data/mapWatch';
 import * as watchAttributes from '../../_secret/watchAttributes';
 
 export const fetchWatches = () => {
   return (dispatch) => {
     dispatch(startFetch());
     getWatches().then((responseList) => {
-      console.log('In action creator:', responseList);
-      const watchList = responseList.map((watch) => ({
-        name: watch.name,
-        price: watch.price,
-        id: watch.id,
-        image: watch.images[0].src,
-        ref: watch.attributes.find(attributes => attributes.id === watchAttributes.REF) ? watch.attributes.find(attributes => attributes.id === watchAttributes.REF).options[0] : '',
-        brand: watch.attributes.find(attributes => attributes.id === watchAttributes.BRAND) ? watch.attributes.find(attributes => attributes.id === watchAttributes.BRAND).options[0] : '',
-        model: watch.attributes.find(attributes => attributes.id === watchAttributes.MODEL) ? watch.attributes.find(attributes => attributes.id === watchAttributes.MODEL).options[0] : '',
-      }));
+      console.log('response:', responseList);
+      const watchList = responseList.map((watch) => mapWatchToList(watch));
       dispatch(setWatchList(watchList));
     })
   }
 }
+
+export const prependWatchList = (watch) => ({
+  type: actionTypes.PREPEND_WATCH_LIST,
+  watch
+})
 
 export const setWatchListFilter = (fieldName, value) => ({
   type: actionTypes.SET_WATCH_LIST_FILTER,
@@ -36,3 +34,4 @@ export const setWatchList = (watches) => ({
 export const startFetch = () => ({
   type: actionTypes.WATCHLIST_START_FETCH
 });
+

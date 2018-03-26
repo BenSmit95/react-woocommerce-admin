@@ -42,3 +42,22 @@
   padding: 20px;
   width: 100%;
 }
+
+.confirmContainer {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.confirmContainer p {
+  font-family: Trenda-Bold, sans-serif;
+  font-size: 20px;
+  margin: auto 50px;
+}
+
+.confirmed {
+  color: green;
+}
+
+.unconfirmed {
+  color: crimson;
+}

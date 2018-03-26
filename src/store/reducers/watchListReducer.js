@@ -28,6 +28,17 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch(action.type) {
+    case actionTypes.SET_WATCH_LIST_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.fieldName]: {
+            ...state.filters[action.fieldName],
+            value: action.value
+          }
+        }
+      }
     case actionTypes.WATCHLIST_START_FETCH: {
       return {
         ...state,
@@ -40,17 +51,12 @@ const reducer = (state = defaultState, action) => {
         watches: action.watches,
         loading: false
       }
-    case actionTypes.SET_WATCH_LIST_FILTER:
+    case actionTypes.PREPEND_WATCH_LIST: {
       return {
         ...state,
-        filters: {
-          ...state.filters,
-          [action.fieldName]: {
-            ...state.filters[action.fieldName],
-            value: action.value
-          }
-        }
+        watches: [action.watch].concat(state.watches)
       }
+    }
     default: return state;
   }
 };

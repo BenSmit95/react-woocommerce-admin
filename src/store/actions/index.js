@@ -12,12 +12,14 @@ export {
 } from './watchForm';
 
 export {
-  fetchWatches
+  fetchWatches,
+  prependWatchList
 } from './watchList';
 
 export {
   fetchJewelry,
-  setJewelryListFilter
+  setJewelryListFilter,
+  prependJewelryList
 } from './jewelryList';
 
 export {

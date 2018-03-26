@@ -53,7 +53,7 @@ class JewelryForm extends Component {
         <JewelryPictures />
         <hr />
         {this.props.loading ? <Spinner /> : null}
-        <div>
+        <div className={classes.buttons}>
           <Button
             type="button"
             onClick={this.handleCheckForm}

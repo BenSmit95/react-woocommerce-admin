@@ -1,9 +1,10 @@
 import * as actionTypes from './actionTypes';
+import * as actions from './index';
 import * as jewelryAttributes from '../../_secret/jewelryAttributes';
 import { postImages, postProduct, getProductById, updateProduct } from '../../_secret/auth';
 import transformData from '../../utils/data/transformJewelryData';
 import { stripHTML } from '../../utils/data/utility';
-import { mapJewelryAttribute, mapJewelryCategory } from '../../utils/data/mapJewelry';
+import { mapJewelryAttribute, mapJewelryCategory, mapJewelryToList } from '../../utils/data/mapJewelry';
 
 export const resetJewelryform = () => ({
   type: actionTypes.RESET_JEWELRYFORM
@@ -127,7 +128,15 @@ export const postJewelryFormOffer = () => {
     dispatch(jewelryFormStartLoading());
       const jewelryForm = {...getState().jewelryForm};
       const data = transformData(jewelryForm);
-      postProduct(data, jewelryForm.jewelryImageRemoveList, () => dispatch(jewelryFormSubmitted()));
+      postProduct(data, jewelryForm.jewelryImageRemoveList, (jewelry) => dispatch(onJewelryFormSubmitted(jewelry)));
+  }
+}
+
+export const onJewelryFormSubmitted = (jewelry) => {
+  return (dispatch) => {
+    const newJewelry = mapJewelryToList(jewelry);
+    dispatch(actions.prependJewelryList(newJewelry));
+    dispatch(jewelryFormSubmitted())
   }
 }
 
