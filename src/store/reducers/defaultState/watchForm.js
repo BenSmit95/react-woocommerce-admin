@@ -389,5 +389,6 @@ export const defaultState = {
   imageLoading: false,
   loading: false,
   valid: false,
-  submitted: false
+  submitted: false,
+  editWatchLoaded: false
 }

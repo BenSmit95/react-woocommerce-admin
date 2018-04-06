@@ -9,3 +9,7 @@
   margin: auto;
   width: 85%;
 }
+
+.content > button {
+  width: 100%;
+}

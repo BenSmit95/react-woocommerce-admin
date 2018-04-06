@@ -1,36 +1,38 @@
-export { 
-  resetWatchform,
-  setWatchFormField, 
-  toggleWatchFormCheckbox, 
-  toggleMassWatchFormCheckbox, 
-  postWatchFormOffer,
-  updateWatchFormOffer,
-  confirmImages,
-  fetchWatch,
-  startRemoveImportImage,
-  checkWatchform
+export {
+	resetWatchform,
+	setWatchFormField,
+	toggleWatchFormCheckbox,
+	toggleMassWatchFormCheckbox,
+	postWatchFormOffer,
+	updateWatchFormOffer,
+	confirmImages,
+	fetchWatch,
+	startRemoveImportImage,
+	checkWatchform
 } from './watchForm';
 
 export {
-  fetchWatches,
-  prependWatchList
+	fetchWatches,
+	prependWatchList,
+	deleteWatch
 } from './watchList';
 
 export {
-  fetchJewelry,
-  setJewelryListFilter,
-  prependJewelryList
+	fetchJewelry,
+	setJewelryListFilter,
+	prependJewelryList,
+	deleteJewelry
 } from './jewelryList';
 
 export {
-  resetJewelryform,
-  setJewelryFormField,
-  toggleJewelryFormCheckbox,
-  confirmJewelryImages,
-  checkJewelryForm,
-  toggleJewelryFormCategory,
-  postJewelryFormOffer,
-  fetchJewel,
-  updateJewelryFormOffer,
-  startRemoveJewelryImportImage
+	resetJewelryform,
+	setJewelryFormField,
+	toggleJewelryFormCheckbox,
+	confirmJewelryImages,
+	checkJewelryForm,
+	toggleJewelryFormCategory,
+	postJewelryFormOffer,
+	fetchJewel,
+	updateJewelryFormOffer,
+	startRemoveJewelryImportImage
 } from './jewelryForm';

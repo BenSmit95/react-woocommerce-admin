@@ -21,11 +21,11 @@ class JewelryForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit();
-  }
+  };
 
   handleCheckForm = () => {
     this.props.onCheckForm()
-  }
+  };
 
   render() {
     if(this.props.submitted) {

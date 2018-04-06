@@ -195,6 +195,12 @@ export const fetchJewel = (id) => {
 
       // Set the ID's to the remove list, since Woocommerce copies images on submit
       dispatch(setJewelryRemoveIds(importedImages.map((image) => image.id)));
+
+      dispatch(setEditJewelryLoaded());
     });
   }
 }
+
+export const setEditJewelryLoaded = () => ({
+  type: actionTypes.SET_EDITJEWELRY_LOADED
+});

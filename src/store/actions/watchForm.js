@@ -151,8 +151,8 @@ export const fetchWatch = (id) => {
 
                 // Scope of delivery
                 const scopeAttribute = (watch.attributes.find((attribute) => (attribute.id === watchAttributes.SCOPE_OF_DELIVERY)));
-                if (scopeAttribute.options.indexOf('With box') !== -1) dispatch(toggleWatchFormCheckbox('watchWithBox'));
-                if (scopeAttribute.options.indexOf('With papers') !== -1) dispatch(toggleWatchFormCheckbox('watchWithPapers'));
+                if (scopeAttribute && scopeAttribute.options.indexOf('With box') !== -1) dispatch(toggleWatchFormCheckbox('watchWithBox'));
+                if (scopeAttribute && scopeAttribute.options.indexOf('With papers') !== -1) dispatch(toggleWatchFormCheckbox('watchWithPapers'));
 
                 // Case diameter
                 const watchCaseDiameter = (watch.attributes.find((attribute) => (attribute.id === watchAttributes.CASE_DIAMETER)));
@@ -196,6 +196,8 @@ export const fetchWatch = (id) => {
 
                 // Set the ID's to the remove list, since Woocommerce copies images on submit
                 dispatch(setRemoveIds(importedImages.map((image) => image.id)));
+
+                dispatch(setEditWatchLoaded());
             })
         .catch((error) => {
             console.log(error);
@@ -219,6 +221,10 @@ export const removeImportImage = (id) => ({
     type: actionTypes.REMOVE_IMPORT_IMAGE,
     id
 })
+
+export const setEditWatchLoaded = () => ({
+    type: actionTypes.SET_EDITWATCH_LOADED
+});
 
 export const resetWatchform = () => ({
     type: actionTypes.RESET_WATCHFORM

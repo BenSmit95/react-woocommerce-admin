@@ -223,7 +223,8 @@ const defaultState = {
   imageLoading: false,
   loading: false,
   valid: false,
-  submitted: false
-}
+  submitted: false,
+  editJewelryLoaded: false
+};
 
 export default defaultState;
